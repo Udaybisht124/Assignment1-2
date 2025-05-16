@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useAuthStore } from '../Store/AuthStore';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 export const SignupForm = () => {
   const [formData, setFormData] = useState({ username: '', email: '', password: '' });
   const [error, setError] = useState(null);
   const { signup } = useAuthStore();
+  const navigate = useNavigate(); 
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,6 +19,7 @@ export const SignupForm = () => {
     if (!result.success) {
       setError(result.error);
     }
+    navigate('/login');
   };
 
   return (

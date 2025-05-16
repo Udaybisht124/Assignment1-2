@@ -23,7 +23,7 @@ export const useAuthStore = create(
             throw new Error('User not found');
           }
           if (user.password !== password) {
-            throw new Error('Incorrect password');
+            throw new Error('Incorrect');
           }
 
           const token = `mock-jwt-${user.id}`;
@@ -46,8 +46,9 @@ export const useAuthStore = create(
             throw new Error('Please fill all fields');
           }
 
-          // Get existing users
-          const users = JSON.parse(localStorage.getItem('users') || '[]');
+          // Always reload users from localStorage to get the latest data
+          let users = JSON.parse(localStorage.getItem('users') || '[]');
+          console.log('Current users in localStorage:', users);
 
           // Check if user exists
           if (users.some((u) => u.email === email)) {
@@ -69,7 +70,12 @@ export const useAuthStore = create(
           console.log('Saving users to localStorage:', usersString);
           localStorage.setItem('users', usersString);
 
-          // Do NOT set isLoggedIn to prevent navigation
+          // After saving, reload users to ensure state is up to date (optional, for debug)
+          users = JSON.parse(localStorage.getItem('users') || '[]');
+          console.log('Users after signup:', users);
+alert('User Signup Successfully');
+navigator('/login');
+// Do NOT set isLoggedIn to prevent navigation
           return { success: true, message: 'Signup successful, please log in' };
         } catch (error) {
           console.error('Signup error:', error);
