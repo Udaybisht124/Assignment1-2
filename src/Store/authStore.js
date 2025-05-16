@@ -1,18 +1,101 @@
-import { create } from "zustand";
+import { create } from 'zustand';
+import { persist, createJSONStorage } from 'zustand/middleware';
 
-const useAuthStore = create((set) => ({
-  // State for user authentication
-  user: null,
-  isAuthenticated: false,
+export const useAuthStore = create(
+  persist(
+    (set, get) => ({
+      isLoggedIn: false,
+      userInfo: null,
+      token: null,
 
-  // Action to log in the user
-  login: (userData) => set({ user: userData, isAuthenticated: true }),
+      login: async (credentials) => {
+        try {
+          const { email, password } = credentials;
+          if (!email || !password) {
+            throw new Error('Please fill all fields');
+          }
 
-  // Action to sign up the user
-  signup: (userData) => set({ user: userData, isAuthenticated: true }),
+          // Get users from localStorage
+          const users = JSON.parse(localStorage.getItem('users') || '[]');
+          const user = users.find((u) => u.email === email);
 
-  // Action to log out the user
-  logout: () => set({ user: null, isAuthenticated: false }),
-}));
+          if (!user) {
+            throw new Error('User not found');
+          }
+          if (user.password !== password) {
+            throw new Error('Incorrect password');
+          }
 
-export default useAuthStore;
+          const token = `mock-jwt-${user.id}`;
+          set({
+            isLoggedIn: true,
+            userInfo: { id: user.id, username: user.username, email: user.email },
+            token,
+          });
+          return { success: true };
+        } catch (error) {
+          console.error('Login error:', error);
+          return { success: false, error: error.message };
+        }
+      },
+
+      signup: async (userData) => {
+        try {
+          const { username, email, password } = userData;
+          if (!username || !email || !password) {
+            throw new Error('Please fill all fields');
+          }
+
+          // Get existing users
+          const users = JSON.parse(localStorage.getItem('users') || '[]');
+
+          // Check if user exists
+          if (users.some((u) => u.email === email)) {
+            throw new Error('Email already registered');
+          }
+
+          // Create new user
+          const newUser = {
+            id: Date.now(),
+            username,
+            email,
+            password,
+          };
+          users.push(newUser);
+          const usersString = JSON.stringify(users);
+          if (!usersString) {
+            throw new Error('Failed to serialize users');
+          }
+          console.log('Saving users to localStorage:', usersString);
+          localStorage.setItem('users', usersString);
+
+          // Do NOT set isLoggedIn to prevent navigation
+          return { success: true, message: 'Signup successful, please log in' };
+        } catch (error) {
+          console.error('Signup error:', error);
+          return { success: false, error: error.message };
+        }
+      },
+
+      logout: () => set({ isLoggedIn: false, userInfo: null, token: null }),
+
+      clearStorage: () => {
+        localStorage.removeItem('users');
+        localStorage.removeItem('auth-storage');
+        set({ isLoggedIn: false, userInfo: null, token: null });
+        return { success: true };
+      },
+    }),
+    {
+      name: 'auth-storage',
+      storage: createJSONStorage(() => ({
+        getItem: (key) => localStorage.getItem(key),
+        setItem: (key, value) => {
+          console.log('setItem:', key, value); // Debug
+          localStorage.setItem(key, value);
+        },
+        removeItem: (key) => localStorage.removeItem(key),
+      })),
+    }
+  )
+);
