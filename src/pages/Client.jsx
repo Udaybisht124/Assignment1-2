@@ -15,12 +15,17 @@ const Clients = () => {
     },
     {
       name: 'Calvin Klein',
+<<<<<<< HEAD
       description: 'Premium fashion brand known for iconic design and style.',
+=======
+      description: 'A pioneer in healthcare and medical research.',
+>>>>>>> 882a2b0147df18b51d85ad399d5319d951a42726
       logo: 'https://addvalsolutions.com/assets/images/clients/logos/ck.png',
     },
   ];
 
   return (
+<<<<<<< HEAD
     <section className="py-16 px-4 bg-gradient-to-b from-gray-50 h-screen to-white dark:from-gray-800 dark:to-gray-900 my-10">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 dark:text-white mb-12 tracking-tight leading-tight">
@@ -52,6 +57,35 @@ const Clients = () => {
         </div>
       </div>
     </section>
+=======
+    <div className="p-8 bg-gray-50">
+      <h1 className="text-4xl font-extrabold mb-10 text-center text-gray-800">
+        Our Clients
+      </h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {clients.map((client, index) => (
+          <Card
+            key={index}
+            className="shadow-lg hover:shadow-xl transition-shadow duration-300"
+          >
+            <div className="flex flex-col items-center">
+              <img
+                src={client.logo}
+                alt={`${client.name} Logo`}
+                className="w-24 h-24 object-contain mb-4"
+              />
+              <h5 className="text-xl font-bold text-gray-900 text-center">
+                {client.name}
+              </h5>
+              <p className="text-sm text-gray-600 text-center mt-2">
+                {client.description}
+              </p>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </div>
+>>>>>>> 882a2b0147df18b51d85ad399d5319d951a42726
   );
 };
 

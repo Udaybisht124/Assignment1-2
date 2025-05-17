@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar } from 'flowbite-react';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
 import { useThemeStore } from '../Store/ThemeStore'; // Import theme store
 import { useAuthStore } from '../Store/AuthStore'; // Import auth store
 
@@ -8,23 +9,39 @@ const AppNavbar = () => {
   const { isLoggedIn, logout } = useAuthStore(); // Check if the user is logged in and provide a logout function
   const { theme, toggleTheme } = useThemeStore(); // Access theme state and toggle function
 
+=======
+
+const AppNavbar = () => {
+>>>>>>> 882a2b0147df18b51d85ad399d5319d951a42726
   return (
     <Navbar
       fluid={true}
       rounded={true}
+<<<<<<< HEAD
       className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white h-20 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600"
+=======
+      className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white"
+>>>>>>> 882a2b0147df18b51d85ad399d5319d951a42726
     >
       <Navbar.Brand href="/">
         <img
           src="https://addvalsolutions.com/assets/images/addval-logo80x61.png"
+<<<<<<< HEAD
           className="mr-3 h-6 sm:h-9 py-10 mt-3 ml-4"
           alt="Addval Logo"
         />
         <span className="self-center whitespace-nowrap text-xl font-semibold mt-3 dark:text-gray-200">
+=======
+          className="mr-3 h-6 sm:h-9"
+          alt="Addval Logo"
+        />
+        <span className="self-center whitespace-nowrap text-xl font-semibold">
+>>>>>>> 882a2b0147df18b51d85ad399d5319d951a42726
           Addval Solutions
         </span>
       </Navbar.Brand>
       <Navbar.Toggle />
+<<<<<<< HEAD
       <Navbar.Collapse style={{ paddingTop: 16, paddingBottom: 10, marginLeft: 30 }}>
         {/* Navigation Links */}
         <Link
@@ -73,6 +90,38 @@ const AppNavbar = () => {
             </button>
           </div>
         )}
+=======
+      <Navbar.Collapse>
+        <Navbar.Link
+          as={Link}
+          to="/"
+          active={true}
+          className="text-white hover:text-yellow-300 transition duration-300 ease-in-out transform hover:scale-110"
+        >
+          Home
+        </Navbar.Link>
+        <Navbar.Link
+          as={Link}
+          to="/services"
+          className="text-white hover:text-yellow-300 transition duration-300 ease-in-out transform hover:scale-110"
+        >
+          Services
+        </Navbar.Link>
+        <Navbar.Link
+          as={Link}
+          to="/contact"
+          className="text-white hover:text-yellow-300 transition duration-300 ease-in-out transform hover:scale-110"
+        >
+          Contact Us
+        </Navbar.Link>
+        <Navbar.Link
+          as={Link}
+          to="/clients"
+          className="text-white hover:text-yellow-300 transition duration-300 ease-in-out transform hover:scale-110"
+        >
+          Clients
+        </Navbar.Link>
+>>>>>>> 882a2b0147df18b51d85ad399d5319d951a42726
       </Navbar.Collapse>
     </Navbar>
   );

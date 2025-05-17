@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Button, Label, TextInput, Textarea } from "flowbite-react";
 import { useState } from "react";
 
@@ -66,9 +67,38 @@ export function ContactUs() {
           type="submit"
           className="mt-6 bg-blue-400 text-white hover:bg-blue-600 dark:bg-blue-500 dark:hover:bg-blue-700 animate-pulse"
         >
+=======
+import React from 'react';
+import { Button, Label, TextInput, Textarea } from 'flowbite-react';
+
+const ContactUs = () => {
+  return (
+    <div className="p-8 max-w-md mx-auto">
+      <h1 className="text-3xl font-bold mb-6 text-center">Contact Us</h1>
+      <form>
+        <div className="mb-4">
+          <Label htmlFor="name" value="Your Name" />
+          <TextInput id="name" type="text" placeholder="John Doe" required={true} />
+        </div>
+        <div className="mb-4">
+          <Label htmlFor="email" value="Your Email" />
+          <TextInput id="email" type="email" placeholder="john.doe@example.com" required={true} />
+        </div>
+        <div className="mb-4">
+          <Label htmlFor="message" value="Your Message" />
+          <Textarea id="message" placeholder="Write your message here..." required={true} />
+        </div>
+        <Button type="submit" color="blue">
+>>>>>>> 882a2b0147df18b51d85ad399d5319d951a42726
           Submit
         </Button>
       </form>
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+};
+
+export default ContactUs;
+>>>>>>> 882a2b0147df18b51d85ad399d5319d951a42726
