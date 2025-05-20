@@ -23,17 +23,19 @@ export function ContactUs() {
 
   return (
     <div
-      className="flex items-start justify-center min-h-screen my-10 bg-gray-100 h-screen dark:bg-gray-900 dark:text-white"
-      style={{ marginTop: 160 }}
+      className="flex items-start justify-center min-h-screen bg-gray-100 h-screen dark:bg-gray-900 dark:text-white"
+     
     >
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col bg-white dark:bg-gray-800 dark:text-white max-w-md w-full p-6 mt-24 rounded-lg shadow-lg"
+        className="flex flex-col bg-white
+        dark:bg-gray-800 dark:text-white max-w-xl w-full p-6 mt-24 rounded-lg shadow-lg"
+        style={{marginTop:200}}
       >
         <div>
           <div className="mb-2 block">
             <Label htmlFor="username" className="text-gray-700 dark:text-gray-300">
-              Your Username
+           Username
             </Label>
           </div>
           <TextInput
@@ -46,11 +48,10 @@ export function ContactUs() {
             className="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
           />
         </div>
-        <div className="max-w-md mt-4">
+        <div className="max-w-xl mt-4">
           <div className="mb-2 block">
             <Label htmlFor="message" className="text-gray-700 dark:text-gray-300">
-              Your Message
-            </Label>
+             Message            </Label>
           </div>
           <Textarea
             id="message"
@@ -59,7 +60,7 @@ export function ContactUs() {
             onChange={handleChange}
             required
             rows={4}
-            className="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+            className="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white max-w-xl"
           />
         </div>
         <Button

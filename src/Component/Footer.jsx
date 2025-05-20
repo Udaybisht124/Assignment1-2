@@ -5,7 +5,9 @@ const AppFooter = () => {
   return (
     <Footer
       container={true}
-      className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white fixed bottom-0 left-0 w-full"
+      className="text-white fixed bottom-0 left-0 w-full"
+   style={{backgroundColor:"#080d12"}}
+    
     >
       <div className="w-full text-center">
         <Footer.Copyright

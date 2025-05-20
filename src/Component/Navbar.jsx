@@ -12,20 +12,21 @@ const AppNavbar = () => {
     <Navbar
       fluid={true}
       rounded={true}
-      className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white h-20 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600"
-    >
+      className="text-white h-20 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600"
+   style={{backgroundColor:"#080d12"}}
+   >
       <Navbar.Brand href="/">
         <img
           src="https://addvalsolutions.com/assets/images/addval-logo80x61.png"
-          className="mr-3 h-6 sm:h-9 py-10 mt-3 ml-4"
+          className="mr-3 h-6 sm:h-9 py-10 my-auto ml-4"
           alt="Addval Logo"
         />
-        <span className="self-center whitespace-nowrap text-xl font-semibold mt-3 dark:text-gray-200">
+        <span className="self-center whitespace-nowrap text-xl font-semibold my-auto   dark:text-gray-200">
           Addval Solutions
         </span>
       </Navbar.Brand>
       <Navbar.Toggle />
-      <Navbar.Collapse style={{ paddingTop: 16, paddingBottom: 10, marginLeft: 30 }}>
+      <Navbar.Collapse style={{ paddingTop: 18, paddingBottom: 18, marginLeft: 30 }}>
         {/* Navigation Links */}
         <Link
           to="/"
@@ -61,13 +62,13 @@ const AppNavbar = () => {
           <div className="flex items-center gap-4 ml-auto">
             <button
               onClick={toggleTheme}
-              className="p-2 bg-gray-200 text-blue-400 rounded-md shadow-md dark:bg-gray-800 dark:text-white"
+              className="p-2 bg-gray-200 text-blue-400 rounded-md w-lg   shadow-md dark:bg-gray-800 dark:text-white my-auto"
             >
               {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
             </button>
             <button
               onClick={logout}
-              className="p-2 bg-red-500 text-white rounded-md w-md shadow-md hover:bg-red-600 dark:bg-blue-600"
+              className="p-2 bg-red-500 text-white rounded-md w-lg shadow-md hover:bg-red-600 dark:bg-blue-600 my-auto"
             >
               Logout
             </button>

@@ -1,9 +1,9 @@
 import { create } from 'zustand';
-import { persist, createJSONStorage } from 'zustand/middleware';
+import { persist, createJSONStorage, devtools } from 'zustand/middleware';
 
 export const useAuthStore = create(
   persist(
-    (set, get) => ({
+    devtools((set, get) => ({
       isLoggedIn: false,
       userInfo: null,
       token: null,
@@ -27,11 +27,15 @@ export const useAuthStore = create(
           }
 
           const token = `mock-jwt-${user.id}`;
-          set({
-            isLoggedIn: true,
-            userInfo: { id: user.id, username: user.username, email: user.email },
-            token,
-          });
+          set(
+            {
+              isLoggedIn: true,
+              userInfo: { id: user.id, username: user.username, email: user.email },
+              token,
+            },
+            false,
+            'login/success'
+          );
           return { success: true };
         } catch (error) {
           console.error('Login error:', error);
@@ -77,15 +81,24 @@ export const useAuthStore = create(
         }
       },
 
-      logout: () => set({ isLoggedIn: false, userInfo: null, token: null }),
+      logout: () =>
+        set(
+          { isLoggedIn: false, userInfo: null, token: null },
+          false,
+          'logout'
+        ),
 
       clearStorage: () => {
         localStorage.removeItem('users');
         localStorage.removeItem('auth-storage');
-        set({ isLoggedIn: false, userInfo: null, token: null });
+        set(
+          { isLoggedIn: false, userInfo: null, token: null },
+          false,
+          'clearStorage'
+        );
         return { success: true };
       },
-    }),
+    })),
     {
       name: 'auth-storage',
       storage: createJSONStorage(() => ({

@@ -27,7 +27,9 @@ function App() {
         {isLoggedIn && <AppNavbar />}
 
         {/* Main Content */}
-        <div className="flex-grow bg-gray-100 dark:bg-gray-900 text-gray-900 h-screen dark:text-white">
+        <div className="flex-grow dark:bg-gray-900 text-gray-900 h-screen dark:text-white"
+
+        >
           <Routes>
             {/* If not logged in, show login/signup */}
             {!isLoggedIn ? (

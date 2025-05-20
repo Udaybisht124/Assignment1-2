@@ -7,7 +7,7 @@ export function Component(props) {
 
   return (
     <Card
-      className="max-w-sm"
+      className="max-w-sm shadow-3xl transition duration-400 ease-in-out animate-pulse"
       renderImage={() => (
         <img
           src={image}

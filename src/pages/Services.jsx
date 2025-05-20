@@ -29,15 +29,15 @@ const Services = () => {
     <section className="bg-gray-50 dark:bg-gray-900 py-16 px-4 mt-10 h-screen gap-8 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto mt-12">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-blue-500 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-blue-500 tracking-tight" style={{marginTop:100}}>
             Our Services
           </h1>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 mt-10 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 mt-10 lg:grid-cols-3 gap-8" style={{marginTop:50}}>
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-gray-800 dark:text-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
+              className="bg-white animate-bounce dark:bg-gray-800 dark:text-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl"
             >
               <img
                 src={service.image}
@@ -51,7 +51,8 @@ const Services = () => {
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
                   {service.description}
                 </p>
-                <button className="inline-block bg-blue-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-500 transition-colors duration-200">
+   
+                <button className="inline-block text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-500 transition-colors duration-200" style={{backgroundColor:"#080d11"}}>
                   Learn More
                 </button>
               </div>

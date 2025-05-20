@@ -23,10 +23,10 @@ const Clients = () => {
   return (
     <section className="py-16 px-4 bg-gradient-to-b from-gray-50 h-screen to-white dark:from-gray-800 dark:to-gray-900 my-10">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 dark:text-white mb-12 tracking-tight leading-tight">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 dark:text-white mb-12 tracking-tight leading-tight" style={{marginTop:110}}>
           Our Esteemed Clients
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10" style={{marginTop:100}}>
           {clients.map((client, index) => (
             <Card
               key={index}
