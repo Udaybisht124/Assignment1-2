@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* Custom animation for service cards */
 @keyframes cardEntrance {
     0% {
@@ -80,3 +81,4 @@
       transform: scale(1) translateY(0);
     }
   }
+
