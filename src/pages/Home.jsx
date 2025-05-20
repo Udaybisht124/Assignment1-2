@@ -1,6 +1,7 @@
 import React from 'react';
 import { Component } from '../Component/Card';
 import "../index.css";
+import ExampleAccordion from '../Component/Accordian';
 const Home = () => {
   const cardData = [
     {
@@ -58,7 +59,9 @@ const Home = () => {
           />
         ))}
       </div>
-
+      <div className="p-4">
+        <ExampleAccordion/>
+      </div>
     </div>
 )};
 
