@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import { Button, Label, TextInput, Textarea } from "flowbite-react";
 import { useState } from "react";
 
@@ -67,7 +67,7 @@ export function ContactUs() {
           type="submit"
           className="mt-6 bg-blue-400 text-white hover:bg-blue-600 dark:bg-blue-500 dark:hover:bg-blue-700 animate-pulse"
         >
-=======
+
 import React from 'react';
 import { Button, Label, TextInput, Textarea } from 'flowbite-react';
 
@@ -89,16 +89,15 @@ const ContactUs = () => {
           <Textarea id="message" placeholder="Write your message here..." required={true} />
         </div>
         <Button type="submit" color="blue">
->>>>>>> 882a2b0147df18b51d85ad399d5319d951a42726
+
           Submit
         </Button>
       </form>
     </div>
   );
-<<<<<<< HEAD
+
 }
-=======
+
 };
 
 export default ContactUs;
->>>>>>> 882a2b0147df18b51d85ad399d5319d951a42726
