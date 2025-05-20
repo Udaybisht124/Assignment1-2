@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import { Component } from '../Component/Card';
 import "../index.css";
 
@@ -60,7 +59,7 @@ const Home = () => {
           />
         ))}
       </div>
-=======
+
 import { Button } from 'flowbite-react';
 
 const Home = () => {
@@ -79,7 +78,6 @@ const Home = () => {
       >
         Get Started
       </Button>
->>>>>>> 882a2b0147df18b51d85ad399d5319d951a42726
     </div>
   );
 };
