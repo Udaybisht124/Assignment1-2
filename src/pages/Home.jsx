@@ -23,6 +23,16 @@ const Home = () => {
       description: "Innovative AI-driven solutions to transform your business.",
       image: "https://via.placeholder.com/150/FF00FF/FFFFFF?text=AI+Solutions",
     },
+    {
+      title: "AI Solutions",
+      description: "Innovative AI-driven solutions to transform your business.",
+      image: "https://via.placeholder.com/150/FF00FF/FFFFFF?text=AI+Solutions",
+    },
+    {
+      title: "AI Solutions",
+      description: "Innovative AI-driven solutions to transform your business.",
+      image: "https://via.placeholder.com/150/FF00FF/FFFFFF?text=AI+Solutions",
+    },
   ];
 
   return (
@@ -31,6 +41,7 @@ const Home = () => {
       style={{
         marginTop:70,
         marginBottom: 70,
+        backgroundImage:URL('')
       }}
     >
       <div className="text-center max-w-2xl" style={{paddingTop:30}}>
