@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useAuthStore } from '../Store/AuthStore';
-<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { Alert } from 'flowbite-react'; // Flowbite Alert
@@ -45,19 +44,12 @@ const animatedBgStyles = `
     to { opacity: 1; transform: translateY(0);}
   }
 `;
-=======
-import { Link, useNavigate } from 'react-router';
->>>>>>> 40b0a5f599f6aedae29c9d08243b46b6f79be509
 
 export const SignupForm = () => {
   const [formData, setFormData] = useState({ username: '', email: '', password: '' });
   const [alert, setAlert] = useState({ show: false, message: '', color: 'failure' });
   const { signup } = useAuthStore();
-<<<<<<< HEAD
-  const navigate = useNavigate();
-=======
   const navigate = useNavigate(); 
->>>>>>> 40b0a5f599f6aedae29c9d08243b46b6f79be509
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -72,14 +64,11 @@ export const SignupForm = () => {
       setAlert({ show: true, message: result.error || "Signup failed!", color: 'failure' });
       return;
     }
-<<<<<<< HEAD
     setAlert({ show: true, message: "Signup successful! Please login.", color: 'success' });
 
     // Optionally redirect after a short delay:
     // setTimeout(() => navigate('/login'), 1500);
-=======
     navigate('/login');
->>>>>>> 40b0a5f599f6aedae29c9d08243b46b6f79be509
   };
 
   return (

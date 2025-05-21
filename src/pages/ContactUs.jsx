@@ -68,3 +68,9 @@ export function ContactUs() {
           type="submit"
           className="mt-6 bg-blue-400 text-white hover:bg-blue-600 dark:bg-blue-500 dark:hover:bg-blue-700 animate-pulse"
         >
+Submit
+</Button>
+</form></div>)
+};
+
+export default ContactUs;
