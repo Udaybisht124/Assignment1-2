@@ -12,15 +12,16 @@ const AppNavbar = () => {
     <Navbar
       fluid={true}
       rounded={true}
-      className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white h-20 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600"
+      className="text-white h-20 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600"
+      style={{backgroundColor:"#0d1013"}}
     >
       <Navbar.Brand href="/">
         <img
           src="https://addvalsolutions.com/assets/images/addval-logo80x61.png"
-          className="mr-3 h-6 sm:h-9 py-10 mt-3 ml-4"
+          className="mr-3 h-6 sm:h-9 py-10 my-auto ml-4"
           alt="Addval Logo"
         />
-        <span className="self-center whitespace-nowrap text-xl font-semibold mt-3 dark:text-gray-200">
+        <span className="self-center whitespace-nowrap  my-auto text-xl font-semibold dark:text-gray-200">
           Addval Solutions
         </span>
       </Navbar.Brand>
