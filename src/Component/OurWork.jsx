@@ -1,9 +1,9 @@
-import { FaCloud, FaRobot, FaPlug, FaMicrochip, FaArrowRight } from "react-icons/fa";
+import "../index.css";
 
 const workItems = [
   {
     title: "Consumer Internet",
-    icon: FaCloud,
+    icon: "https://cdn-icons-png.flaticon.com/512/4144/4144497.png", // Cloud icon
     points: [
       "Native Mobile Apps",
       "Web Apps",
@@ -12,7 +12,7 @@ const workItems = [
   },
   {
     title: "Robotics & Automation",
-    icon: FaRobot,
+    icon: "https://cdn-icons-png.flaticon.com/512/1061/1061164.png", // Robot icon
     points: [
       "Drive by Wire Systems",
       "Autonomous Mobile Robots",
@@ -21,7 +21,7 @@ const workItems = [
   },
   {
     title: "Internet of Things",
-    icon: FaPlug,
+    icon: "https://cdn-icons-png.flaticon.com/512/1048/1048953.png", // Plug icon
     points: [
       "Hardware",
       "Scalable Interfaces",
@@ -31,7 +31,7 @@ const workItems = [
   },
   {
     title: "AI & ML",
-    icon: FaMicrochip,
+    icon: "https://cdn-icons-png.flaticon.com/512/2942/2942927.png", // AI/ML icon
     points: [
       "Predictive Modelling",
       "Recommender Systems",
@@ -43,7 +43,7 @@ const workItems = [
 
 export default function OurWorkSection() {
   return (
-    <section className="min-h-screen bg-black flex items-center">
+    <section className="min-h-screen bg-black flex items-center ">
       <div className="max-w-6xl mx-auto px-4 w-full">
         <h2 className="text-5xl font-semibold text-center mb-2 text-blue-400 pt-10">Our Work</h2>
         <p className="text-gray-500 text-center mb-12 text-lg">
@@ -53,33 +53,32 @@ export default function OurWorkSection() {
           {workItems.map((item) => (
             <div
               key={item.title}
-              className="relative bg-white rounded-2xl shadow-md hover:shadow-lg my-8 transition-shadow p-8 flex flex-col min-h-[240px] overflow-hidden group"
+              className="bg-blue-400 text-white dark:bg-white dark:font-bold text-white relative rounded-2xl shadow-md hover:shadow-lg my-8 transition-shadow p-8 flex flex-col min-h-[240px] overflow-hidden group"
             >
-              {/* Animated Icon with Circle Background on Hover */}
+              {/* Manual Icon Image */}
               <div className="absolute top-6 right-6 flex items-center justify-center">
-                <span
-                  className="absolute w-16 h-16 rounded-full bg-blue-100 opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300"
-                  aria-hidden="true"
-                />
-                <item.icon
-                  className="relative w-12 h-12 text-blue-500 transition-transform transition-colors duration-300 group-hover:scale-110 group-hover:text-blue-700"
+                <img
+                  src={item.icon}
+                  alt={item.title + " icon"}
+                  className="w-24 h-24 mx-10 object-contain"
                   aria-hidden="true"
                 />
               </div>
               {/* Title */}
               <div className="mb-4">
                 <span className="block font-bold text-xl text-gray-800">{item.title}</span>
-                <span className="block w-8 border-b-2 border-blue-500 mt-1" />
+                <span className="block w-8 border-b-2 text-blue-400 border-blue-500 mt-1" />
               </div>
               {/* List */}
-              <ul className="mt-2 mb-10 space-y-1 text-gray-600">
+              <ul className="mt-2 mb-10 space-y-1 text-white font-serif dark:text-blue-600">
                 {item.points.map((point, idx) => (
                   <li key={idx} className="pl-4 list-disc">{point}</li>
-                ))}
+                ))} 
               </ul>
-              {/* Arrow */}
-              <div className="absolute bottom-6 right-6 text-blue-400">
-                <FaArrowRight className="w-5 h-5" />
+              {/* Manual Arrow Icon */}
+              <div className="absolute bottom-6 right-6 text-blue-400 text-xl">
+                {/* Unicode right arrow */}
+                <span aria-hidden="true">→</span>
               </div>
             </div>
           ))}
