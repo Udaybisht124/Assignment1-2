@@ -27,12 +27,22 @@ const Home = () => {
   ];
 
   return (
-    <div className="flex bg-red dark:bg-blue-700 min-w-screen flex-col items-center justify-center p-6" style={{ marginTop: 70, marginBottom: 70 }}>
+    <div
+      className="flex min-w-screen flex-col items-center justify-center p-6 bg-red dark:bg-blue-700"
+      style={{
+        marginTop: 70,
+        marginBottom: 70,
+        backgroundImage: `url(src/assets/Home.jpg)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <div className="text-center max-w-2xl" style={{ paddingTop: 30 }}>
-        <h1 className="text-5xl animate-pulse font-extrabold mb-6 mt-4 text-gray-800 dark:text-white leading-snug">
+        <h1 className="text-5xl animate-pulse font-extrabold mb-6 mt-4 text-gray-800 dark:text-black leading-snug">
           Welcome to <span className="text-blue-500">Addval Solutions</span>
         </h1>
-        <p className="text-lg mb-8 my-12 animate-pulse font-bold text-gray-500 dark:text-black">
+        <p className="text-xl mb-8 my-12 font-bold text-white ">
           Transform your dreams into reality with our innovative solutions! Let us help you achieve success with cutting-edge expertise.
         </p>
         <div
