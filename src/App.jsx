@@ -10,6 +10,10 @@ import Clients from './pages/Client.jsx';
 import AppFooter from './Component/Footer.jsx';
 import { SignupForm } from './Component/Signup';
 import { LoginForm } from './Component/LoginForm';
+import OurWorkSection from './Component/OurWork';
+
+
+
 
 function App() {
   const { isLoggedIn } = useAuthStore(); // Check if the user is logged in
@@ -21,7 +25,7 @@ function App() {
   }, [theme]);
 
   return (
-    <Router>
+     <Router>
       <div className="App flex flex-col min-h-screen">
         {/* Show Navbar and Footer only if logged in */}
         {isLoggedIn && <AppNavbar />}
@@ -46,7 +50,9 @@ function App() {
                 <Route path="/services" element={<Services />} />
                 <Route path="/contact" element={<ContactUs />} />
                 <Route path="/clients" element={<Clients />} />
-                {/* Redirect to home if accessing login/signup after login */}
+                <Route path="/ourwork" element={<OurWorkSection />} />
+                {/* Redirect to home if accessing login/signup 
+                after login */}
                 <Route path="/login" element={<Navigate to="/" />} />
                 <Route path="/signup" element={<Navigate to="/" />} />
               </>
@@ -58,6 +64,7 @@ function App() {
         {isLoggedIn && <AppFooter />}
       </div>
     </Router>
+
   );
 }
 

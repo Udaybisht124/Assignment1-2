@@ -23,10 +23,13 @@ export function ContactUs() {
   };
 
   return (
+    
     <div
       className="flex items-start justify-center min-h-screen bg-gray-100 h-screen dark:bg-gray-900 dark:text-white"
      
     >
+      {/* <div className="text-3xl font-bold font-serif text-white" style={{}}>ContactUS</div> */}
+      
       <form
         onSubmit={handleSubmit}
         className="flex flex-col bg-white
@@ -34,6 +37,7 @@ export function ContactUs() {
         style={{marginTop:200}}
       >
         <div>
+          
           <div className="mb-2 block">
             <Label htmlFor="username" className="text-gray-700 dark:text-gray-300">
            Username

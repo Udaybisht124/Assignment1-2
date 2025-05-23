@@ -1,79 +1,63 @@
 import React from 'react';
 import { Navbar } from 'flowbite-react';
 import { Link } from 'react-router-dom';
-import { useThemeStore } from '../Store/ThemeStore'; // Import theme store
-import { useAuthStore } from '../Store/AuthStore'; // Import auth store
+import { useThemeStore } from '../Store/ThemeStore';
+import { useAuthStore } from '../Store/AuthStore';
+import '../index.css';
+
+const navItems = [
+  { to: "/", label: "Home" },
+  { to: "/services", label: "Services" },
+  { to: "/contact", label: "Contact Us" },
+  { to: "/clients", label: "Clients" },
+  { to: "/ourwork", label: "Our Work" }
+];
 
 const AppNavbar = () => {
-  const { isLoggedIn, logout } = useAuthStore(); // Check if the user is logged in and provide a logout function
-  const { theme, toggleTheme } = useThemeStore(); // Access theme state and toggle function
+  const { isLoggedIn, logout } = useAuthStore();
+  const { theme, toggleTheme } = useThemeStore();
 
   return (
-    <Navbar
-      fluid={true}
-      rounded={true}
-      className="text-white h-20 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600"
-      style={{backgroundColor:"#0d1013"}}
-    >
+    <Navbar fluid rounded className="navbar">
       <Navbar.Brand href="/">
         <img
           src="https://addvalsolutions.com/assets/images/addval-logo80x61.png"
           className="mr-3 h-6 sm:h-9 py-10 my-auto ml-4"
           alt="Addval Logo"
         />
-        <span className="self-center whitespace-nowrap  my-auto text-xl font-semibold dark:text-gray-200">
+        <span className="self-center whitespace-nowrap my-auto text-xl font-semibold dark:text-gray-200">
           Addval Solutions
         </span>
       </Navbar.Brand>
       <Navbar.Toggle />
-      <Navbar.Collapse style={{ paddingTop: 16, paddingBottom: 10, marginLeft: 30 }}>
-        {/* Navigation Links */}
-        <Link
-          to="/"
-          className="relative group text-white dark:text-gray-300 hover:text-yellow-300 hover:bg-green-400 transition duration-300 ease-in-out px-3"
-        >
-          Home
-          <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-yellow-300 group-hover:w-full transition-all duration-300 ease-in-out"></span>
-        </Link>
-        <Link
-          to="/services"
-          className="relative group text-white dark:text-gray-300 hover:text-yellow-300 transition duration-300 ease-in-out px-3"
-        >
-          Services
-          <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-yellow-300 group-hover:w-full transition-all duration-300 ease-in-out"></span>
-        </Link>
-        <Link
-          to="/contact"
-          className="relative group text-white dark:text-gray-300 hover:text-yellow-300 transition duration-300 ease-in-out px-3"
-        >
-          Contact Us
-          <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-yellow-300 group-hover:w-full transition-all duration-300 ease-in-out"></span>
-        </Link>
-        <Link
-          to="/clients"
-          className="relative group text-white dark:text-gray-300 hover:text-yellow-300 transition duration-300 ease-in-out px-3"
-        >
-          Clients
-          <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-yellow-300 group-hover:w-full transition-all duration-300 ease-in-out"></span>
-        </Link>
-
-        {/* Theme Toggle Button - Only Visible When Logged In */}
-        {isLoggedIn && (
-          <div className="flex items-center gap-4 ml-auto">
-            <button
-              onClick={toggleTheme}
-              className="p-2 bg-gray-200 text-blue-400 rounded-md shadow-md dark:bg-gray-800 dark:text-white"
-            >
-              {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
-            </button>
+      <Navbar.Collapse className="navbar-collapse">
+        {navItems.map(({ to, label }) => (
+          <Link
+            key={label}
+            to={to}
+            className="nav-link"
+            onMouseEnter={() => console.log(`Hovering ${label}`)} // For debugging
+          >
+            <span className="nav-link-text">{label}</span>
+            <span className="nav-link-underline" />
+          </Link>
+        ))}
+        <div className="button-container">
+          <button
+            onClick={toggleTheme}
+            className={`theme-toggle ${theme === 'dark' ? 'theme-toggle-dark' : ''}`}
+          >
+            {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+          </button>
+          {isLoggedIn && (
             <button
               onClick={logout}
-              className="p-2 bg-red-500 text-white rounded-md w-md shadow-md hover:bg-red-600 dark:bg-blue-600"
+              className={`logout-button ${theme === 'dark' ? 'logout-button-dark' : ''}`}
             >
               Logout
             </button>
-          </div>
-        )}
+          )}
+        </div>
       </Navbar.Collapse>
     </Navbar>
   );

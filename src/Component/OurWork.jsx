@@ -60,7 +60,7 @@ export default function OurWorkSection() {
                 <img
                   src={item.icon}
                   alt={item.title + " icon"}
-                  className="w-24 h-24 mx-10 object-contain"
+                  className="w-24 h-24 mx-10 object-contain bg-black"
                   aria-hidden="true"
                 />
               </div>

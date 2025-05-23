@@ -68,7 +68,7 @@ const Clients = () => {
                 className={`
                   group flex flex-col items-center justify-between
                   bg-white dark:bg-gray-800 rounded-2xl shadow-md
-                  border border-transparent
+                  border border-blue-400
                   transition-all duration-300 ease-in-out
                   hover:-translate-y-2 hover:scale-105
                   hover:shadow-2xl hover:border-blue-400 dark:hover:border-blue-500

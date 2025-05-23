@@ -74,7 +74,6 @@ export const useAuthStore = create(
           users = JSON.parse(localStorage.getItem('users') || '[]');
           console.log('Users after signup:', users);
 alert('User Signup Successfully');
-navigator('/login');
 // Do NOT set isLoggedIn to prevent navigation
           return { success: true, message: 'Signup successful, please log in' };
         } catch (error) {

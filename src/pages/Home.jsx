@@ -28,7 +28,7 @@ const Home = () => {
 
   return (
     <div
-      className="flex min-w-screen flex-col items-center justify-center p-6 bg-red dark:bg-blue-700"
+      className="flex min-w-screen flex-col items-center justify-center p-6 dark:bg-white min-h-screen"
       style={{
         marginTop: 70,
         marginBottom: 70,
@@ -42,7 +42,7 @@ const Home = () => {
         <h1 className="text-5xl animate-pulse font-extrabold mb-6 mt-4 text-gray-800 dark:text-black leading-snug">
           Welcome to <span className="text-blue-500">Addval Solutions</span>
         </h1>
-        <p className="text-xl mb-8 my-12 font-bold text-white ">
+        <p className="text-xl mb-8 font-bold text-white" style={{paddingTop:30}}>
           Transform your dreams into reality with our innovative solutions! Let us help you achieve success with cutting-edge expertise.
         </p>
         <div

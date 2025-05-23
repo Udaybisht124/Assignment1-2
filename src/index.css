@@ -4,81 +4,126 @@
 @tailwind utilities;
 
 
-/* Custom animation for service cards */
-@keyframes cardEntrance {
-    0% {
-      opacity: 0;
-      transform: translateY(50px) scale(0.95) rotateZ(-2deg);
+.navbar {
+  background-color: #0d1013;
+  color: white;
+  height: 80px;
+}
 
-    }
-    60% {
-      opacity: 1;
-      transform: translateY(-8px) scale(1.03) rotateZ(1deg);
-      
-    }
-    80% {
-      transform: translateY(4px) scale(0.98) rotateZ(-1deg);
-      
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0) scale(1) rotateZ(0deg);
-  
-    }
+/* Navbar collapse container */
+.navbar-collapse {
+  padding-top: 16px;
+  padding-bottom: 10px;
+  margin-left: 30px;
+  position: relative; /* Ensure absolute children are positioned correctly */
+}
+
+/* Nav link styling */
+.nav-link {
+  position: relative;
+  display: inline-block;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #60a5fa; /* Equivalent to blue-400 */
+}
+
+/* Text animation on hover */
+.nav-link-text {
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-link:hover .nav-link-text {
+  transform: translateY(-4px) scale(1.1); /* Scale and translate up */
+}
+
+/* Underline animation */
+.nav-link-underline {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #60a5fa;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover .nav-link-underline {
+  width: 100%;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  padding: 8px;
+  background-color: #e5e7eb; /* Light mode: gray-200 */
+  color: #60a5fa;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.theme-toggle-dark {
+  background-color: #1f2937; /* Dark mode: gray-800 */
+  color: white;
+}
+
+/* Logout button */
+.logout-button {
+  padding: 8px;
+  background-color: #ef4444; /* Red-500 */
+  color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.logout-button:hover {
+  background-color: #dc2626; /* Red-600 */
+}
+
+.logout-button-dark {
+  background-color: #3b82f6; /* Blue-500 for dark mode */
+}
+
+/* Responsive flex for buttons */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+@media (min-width: 640px) {
+  .button-container {
+    flex-direction: row;
+    gap: 16px;
+    margin-top: 0;
+    width: auto;
   }
-  
-  @keyframes hoverPop {
-    0% {
-      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-      transform: scale(1);
-    }
-    70% {
-      box-shadow: 0 10px 28px rgba(0,0,0,0.18);
-      transform: scale(1.04) rotateZ(1.5deg);
-    }
-    100% {
-      box-shadow: 0 6px 32px rgba(0,0,0,0.11);
-      transform: scale(1.025) rotateZ(0deg);
-    }
+
+  .theme-toggle,
+  .logout-button {
+    width: auto;
   }
-  
-  .service-card {
-    animation: cardEntrance 1.1s cubic-bezier(0.23, 1, 0.32, 1) both;
-    transition: box-shadow 0.3s cubic-bezier(0.23, 1, 0.32, 1), transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-    will-change: transform, box-shadow, opacity, filter;
-    cursor: pointer;
-    z-index: 0;
-  }
-  
-  .service-card:hover {
-    animation: hoverPop 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
-    box-shadow: 0 12px 36px rgba(0, 112, 244, 0.18), 0 2px 4px rgba(0,0,0,0.08);
-    background: linear-gradient(108deg, #0a2540 0%, #1d3557 100%);
-    color: #fff;
-    z-index: 2;
-    transform: scale(1.025) translateY(-3px);
-  }
-  
-  .service-card .service-btn {
-    transition: background 0.2s, color 0.2s;
-  }
-  
-  .service-card:hover .service-btn {
-    background: #2563eb;
-    color: #fff;
-  }
-  
-  /* Subtle fade-in for the image */
-  .service-card img {
-    opacity: 0;
-    transform: scale(0.98) translateY(20px);
-    animation: fadeInImg 1.2s .4s cubic-bezier(.18,.89,.32,1.28) forwards;
-  }
-  
-  @keyframes fadeInImg {
-    to {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-    }
-  }
+}
+
+/* Dark mode overrides */
+.dark .nav-link {
+  color: #d1d5db; /* Gray-300 */
+}
+
+.dark .theme-toggle {
+  background-color: #1f2937;
+  color: white;
+}
+
+.dark .logout-button {
+  background-color: #3b82f6;
+}
 
