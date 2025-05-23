@@ -57,6 +57,16 @@ const AppNavbar = () => {
           <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-yellow-300 group-hover:w-full transition-all duration-300 ease-in-out"></span>
         </Link>
 
+ <Link
+          to="/ourwork"
+          className="relative group text-white dark:text-gray-300 hover:text-yellow-300 transition duration-300 ease-in-out px-3"
+        >
+        Our Work
+          <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-yellow-300 group-hover:w-full transition-all duration-300 ease-in-out"></span>
+        </Link>
+
+
+
         {/* Theme Toggle Button - Only Visible When Logged In */}
         {isLoggedIn && (
           <div className="flex items-center gap-4 ml-auto">
