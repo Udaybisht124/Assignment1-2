@@ -31,7 +31,7 @@ const Home = () => {
           Transform your dreams into reality with our innovative solutions! Let us help you achieve success with cutting-edge expertise.
         </p>
         <div
-          className="bg-blue-700 dark:bg-blue-700 text-white dark:text-black w-40 sm:w-48 hover:bg-blue-700 dark:hover:bg-blue-500 mb-8 px-6 py-3 text-lg rounded-lg shadow-lg mx-auto cursor-pointer transition"
+          className="bg-red-700 dark:bg-blue-700 text-white dark:text-black w-40 sm:w-48 hover:bg-blue-700 dark:hover:bg-blue-500 mb-8 px-6 py-3 text-lg rounded-lg shadow-lg mx-auto cursor-pointer transition"
         style={{marginTop:40}}
         >
           Get Started
