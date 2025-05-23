@@ -61,7 +61,7 @@ const AppFooter = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={link.label}
-              className={`transition-colors duration-200 ${link.className}`}
+              className={`transition-colors text-blue-500 duration-200 ${link.className}`}
               key={link.label}
             >
               {link.icon}
@@ -70,7 +70,7 @@ const AppFooter = () => {
         </div>
 
         {/* Right: Copyright */}
-        <div className="text-sm text-gray-300">
+        <div className="text-sm">
           <Footer.Copyright
             href="/"
             by="Addval Solutions"
