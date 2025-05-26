@@ -70,7 +70,7 @@ const AppFooter = () => {
         </div>
 
         {/* Right: Copyright */}
-        <div className="text-sm text-gray-300">
+        <div className="text-sm">
           <Footer.Copyright
             href="/"
             by="Addval Solutions"
