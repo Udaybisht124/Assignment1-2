@@ -1,18 +1,17 @@
 import { useState } from 'react';
 import { useAuthStore } from '../Store/AuthStore';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom'; // <-- use react-router-dom for Link
+import { FloatingLabel } from 'flowbite-react'; // <-- Import FloatingLabel from flowbite-react
 
 // Add this style tag inside your component or in your CSS file for the animations
 const animatedBgStyles = `
   .animated-bg {
     position: fixed;
-    background
     top: 0; left: 0; width: 100vw; height: 100vh;
     z-index: 0;
     overflow: hidden;
     pointer-events: none; /* Prevent interaction */
   }
-
   .bubble {
     position: absolute;
     opacity: 0.7;
@@ -76,25 +75,33 @@ export const LoginForm = () => {
         {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
         <form className="space-y-6 bg-transparent" onSubmit={handleSubmit}>
           <div>
-            <label className="block text-blue-600">Email</label>
-            <input
-              type="email"
+            <FloatingLabel
+              variant="standard"
+              label="Email"
+              id="email"
               name="email"
+              type="email"
               value={credentials.email}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 border rounded-md bg-white text-gray-900 border-gray-300 shadow-sm"
+              required
+              className="bg-white text-gray-900 border-gray-300"
               placeholder="Enter email"
+              autoComplete="email"
             />
           </div>
           <div>
-            <label className="block text-blue-600">Password</label>
-            <input
-              type="password"
+            <FloatingLabel
+              variant="standard"
+              label="Password"
+              id="password"
               name="password"
+              type="password"
               value={credentials.password}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 border rounded-md bg-white text-gray-900 border-gray-300 shadow-sm"
+              required
+              className="bg-white text-red-900 border-gray-300"
               placeholder="Enter password"
+              autoComplete="false"
             />
           </div>
           <button
