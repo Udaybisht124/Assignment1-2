@@ -39,10 +39,9 @@ const AppFooter = () => {
   return (
     <Footer
       container={true}
-      className="text-white fixed bottom-0 left-0 w-full shadow-lg border-t border-gray-700"
-      style={{ backgroundColor: "#080d12" }}
+      className="fixed bottom-0 left-0 w-full shadow-lg border-t border-gray-200 dark:text-[#1f2937] dark:border-gray-700 bg-gray-50  transition-colors duration-300"
     >
-      <div className="w-full flex flex-col md:flex-row items-center justify-between py-2 px-4">
+      <div className="w-full flex flex-col md:flex-row items-center justify-between py-2 px-4 text-gray-800 dark:text-white">
         {/* Left: Logo & Company Name */}
         <div className="flex items-center space-x-2 mb-2 md:mb-0">
           <img
@@ -70,12 +69,11 @@ const AppFooter = () => {
         </div>
 
         {/* Right: Copyright */}
-        <div className="text-sm">
+        <div className="text-sm text-gray-600 dark:text-gray-300">
           <Footer.Copyright
             href="/"
             by="Addval Solutions"
             year={2025}
-            className="text-gray-300"
           />
         </div>
       </div>

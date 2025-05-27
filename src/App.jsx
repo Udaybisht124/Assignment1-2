@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { useAuthStore } from './Store/AuthStore'; // Import the auth store
-import { useThemeStore } from './Store/ThemeStore'; // Import the theme store
+import { useAuthStore } from './Store/AuthStore';
+import { useThemeStore } from './Store/ThemeStore';
 import AppNavbar from './Component/Navbar';
 import Home from './pages/Home.jsx';
 import Services from './pages/Services.jsx';
@@ -12,47 +12,36 @@ import { SignupForm } from './Component/Signup';
 import { LoginForm } from './Component/LoginForm';
 import OurWorkSection from './Component/OurWork';
 
-
-
-
 function App() {
-  const { isLoggedIn } = useAuthStore(); // Check if the user is logged in
-  const { theme } = useThemeStore(); // Access theme state
+  const { isLoggedIn } = useAuthStore();
+  const { theme } = useThemeStore();
 
-  // Apply theme on initial render
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', theme === 'dark');
+    document.documentElement.classList.toggle('dark', theme === 'dark'); // fixed logic
   }, [theme]);
 
   return (
-     <Router>
+    <Router>
       <div className="App flex flex-col min-h-screen">
         {/* Show Navbar and Footer only if logged in */}
         {isLoggedIn && <AppNavbar />}
 
         {/* Main Content */}
-        <div className="flex-grow dark:bg-gray-900 text-gray-900 h-screen dark:text-white"
-
-        >
+        <div className="flex-grow dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen">
           <Routes>
-            {/* If not logged in, show login/signup */}
             {!isLoggedIn ? (
               <>
                 <Route path="/login" element={<LoginForm />} />
                 <Route path="/signup" element={<SignupForm />} />
-                {/* Redirect to login if accessing any other route */}
                 <Route path="*" element={<Navigate to="/login" />} />
               </>
             ) : (
               <>
-                {/* Show home page and other routes after login */}
                 <Route path="/" element={<Home />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/contact" element={<ContactUs />} />
                 <Route path="/clients" element={<Clients />} />
                 <Route path="/ourwork" element={<OurWorkSection />} />
-                {/* Redirect to home if accessing login/signup 
-                after login */}
                 <Route path="/login" element={<Navigate to="/" />} />
                 <Route path="/signup" element={<Navigate to="/" />} />
               </>
@@ -60,11 +49,9 @@ function App() {
           </Routes>
         </div>
 
-        {/* Footer */}
         {isLoggedIn && <AppFooter />}
       </div>
     </Router>
-
   );
 }
 

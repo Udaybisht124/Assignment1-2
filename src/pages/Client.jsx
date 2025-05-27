@@ -49,7 +49,7 @@ const Clients = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-tl from-gray-50 via-white to-blue-50 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950 py-16 px-4 sm:px-8 md:px-16 lg:px-20 min-h-screen flex items-center my-10">
+    <section className="bg-gradient-to-tl from-gray-50 via-white to-blue-50 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950 py-16 px-4 sm:px-8 md:px-16 lg:px-20 min-h-screen max-h-screen flex items-center my-10">
       <div className="max-w-7xl mx-auto w-full">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-blue-400 tracking-tight mt-2 mb-2" style={{ padding: 40 }}>

@@ -48,28 +48,33 @@ const animatedBgStyles = `
 export const SignupForm = () => {
   const [formData, setFormData] = useState({ username: '', email: '', password: '' });
   const [alert, setAlert] = useState({ show: false, message: '', color: 'failure' });
+  const [loading, setLoading] = useState(false);
   const { signup } = useAuthStore();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const alertMessage='Signup Successfully';
   const handleSubmit = async (e) => {
     e.preventDefault();
     setAlert({ show: false, message: '', color: 'failure' });
+    setLoading(true);
 
     const result = await signup(formData);
+    setLoading(false);
+
     if (!result.success) {
       setAlert({ show: true, message: result.error || "Signup failed!", color: 'failure' });
       return;
     }
     setAlert({ show: true, message: "Signup successful! Please login.", color: 'success' });
 
-    // Optionally redirect after a short delay:
-    // setTimeout(() => navigate('/login'), 1500);
-    navigate('/login');
+    // Delay redirect so alert is visible
+    setTimeout(() => {
+      setAlert({ show: false, message: '', color: 'success' });
+      navigate('/login');
+    }, 1800);
   };
 
   return (
@@ -83,58 +88,78 @@ export const SignupForm = () => {
         <div className="bubble bubble4"></div>
         <div className="bubble bubble5"></div>
       </div>
-      {/* Flowbite Alert at the top */}
-      {alert.show && (
-        <div className="fixed mt-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md">
-      <AlertComponent message={alertMessage}/>
-        </div>
-      )}
-
 
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 signup-form-fadein" style={{ zIndex: 1 }}>
+        {/* Alert above the form */}
+        {alert.show && (
+          <div className="mb-6">
+            <AlertComponent message={alert.message} color={alert.color} />
+          </div>
+        )}
+
         <h2 className="text-2xl font-bold mb-6 text-blue-500 text-center">Sign Up</h2>
-        <form className="space-y-6 bg-white" onSubmit={handleSubmit}>
+        <form className="space-y-6 bg-white" onSubmit={handleSubmit} autoComplete="off">
           <div>
-            <label className="block text-blue-600">Username</label>
+            <label className="block text-blue-600" htmlFor="username">Username</label>
             <input
+              id="username"
               type="text"
               name="username"
               value={formData.username}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 border rounded-md bg-white text-gray-900 border-gray-300 shadow-sm"
+              className="w-full px-4 py-2 border rounded-md bg-white text-gray-900 border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter username"
               required
+              autoComplete="username"
+              disabled={loading}
             />
           </div>
           <div>
-            <label className="block text-blue-600">Email</label>
+            <label className="block text-blue-600" htmlFor="email">Email</label>
             <input
+              id="email"
               type="email"
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 border rounded-md bg-white text-gray-900 border-gray-300 shadow-sm"
+              className="w-full px-4 py-2 border rounded-md bg-white text-gray-900 border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter email"
               required
+              autoComplete="email"
+              disabled={loading}
             />
           </div>
           <div>
-            <label className="block text-blue-600">Password</label>
+            <label className="block text-blue-600" htmlFor="password">Password</label>
             <input
+              id="password"
               type="password"
               name="password"
               value={formData.password}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 border rounded-md bg-white text-gray-900 border-gray-300 shadow-sm"
+              className="w-full px-4 py-2 border rounded-md bg-white text-gray-900 border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter password"
               required
+              autoComplete="new-password"
+              disabled={loading}
             />
           </div>
           <button
             type="submit"
-            className="w-full px-4 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors shadow-md"
+            className={`w-full px-4 py-3 bg-blue-500 text-white rounded-md transition-colors shadow-md font-semibold flex items-center justify-center ${loading ? "opacity-60 cursor-not-allowed" : "hover:bg-blue-600"}`}
+            disabled={loading}
           >
-            Sign Up
+            {loading ? (
+              <>
+                <svg className="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                </svg>
+                Signing Up...
+              </>
+            ) : (
+              "Sign Up"
+            )}
           </button>
           <p className="text-center text-gray-400">
             Already have an account?{' '}

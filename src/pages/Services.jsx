@@ -47,9 +47,9 @@ const Services = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-tl from-gray-50 via-white to-blue-50 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950 py-16 px-4 sm:px-8 md:px-16 lg:px-20 min-h-screen">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+    <section className="bg-white min-h-screen dark:bg-[#111827] py-16 pb-32 px-4 sm:px-8 md:px-16 lg:px-20">
+      <div className="max-w-7xl mx-auto w-full">
+        <div className="text-center">
           <h1
             className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-blue-400 tracking-tight mt-2 mb-2"
             style={{ padding: 40 }}
