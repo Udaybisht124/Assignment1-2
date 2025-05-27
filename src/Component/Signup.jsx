@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useAuthStore } from '../Store/AuthStore';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { Alert } from 'flowbite-react'; // Flowbite Alert
+import { AlertComponent } from './Alert';
 
 const animatedBgStyles = `
   .animated-bg {
@@ -55,6 +55,7 @@ export const SignupForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const alertMessage='Signup Successfully';
   const handleSubmit = async (e) => {
     e.preventDefault();
     setAlert({ show: false, message: '', color: 'failure' });
@@ -85,11 +86,11 @@ export const SignupForm = () => {
       {/* Flowbite Alert at the top */}
       {alert.show && (
         <div className="fixed mt-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md">
-          <Alert color={alert.color} onDismiss={() => setAlert({ ...alert, show: false })}>
-            {alert.message}
-          </Alert>
+      <AlertComponent message={alertMessage}/>
         </div>
       )}
+
+
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 signup-form-fadein" style={{ zIndex: 1 }}>
         <h2 className="text-2xl font-bold mb-6 text-blue-500 text-center">Sign Up</h2>
         <form className="space-y-6 bg-white" onSubmit={handleSubmit}>
