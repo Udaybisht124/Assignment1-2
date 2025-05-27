@@ -3,6 +3,8 @@ import { useAuthStore } from '../Store/AuthStore';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { AlertComponent } from './Alert';
+// Import Flowbite's FloatingLabel component
+import { FloatingLabel } from 'flowbite-react';
 
 const animatedBgStyles = `
   .animated-bg {
@@ -11,7 +13,7 @@ const animatedBgStyles = `
     z-index: 0;
     overflow: hidden;
     pointer-events: none;
-    background:black;
+    background:#1f2937;
     animation: bgFadeIn 1s ease;
   }
   @keyframes bgFadeIn {
@@ -100,48 +102,50 @@ export const SignupForm = () => {
         <h2 className="text-2xl font-bold mb-6 text-blue-500 text-center">Sign Up</h2>
         <form className="space-y-6 bg-white" onSubmit={handleSubmit} autoComplete="off">
           <div>
-            <label className="block text-blue-600" htmlFor="username">Username</label>
-            <input
+            <FloatingLabel
+              variant="standard"
+              label="Username"
               id="username"
-              type="text"
               name="username"
               value={formData.username}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 border rounded-md bg-white text-gray-900 border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-              placeholder="Enter username"
               required
-              autoComplete="username"
               disabled={loading}
+              autoComplete="username"
+              className="bg-white text-gray-900 border-gray-300"
+              placeholder="Enter username"
             />
           </div>
           <div>
-            <label className="block text-blue-600" htmlFor="email">Email</label>
-            <input
+            <FloatingLabel
+              variant="standard"
+              label="Email"
               id="email"
-              type="email"
               name="email"
+              type="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 border rounded-md bg-white text-gray-900 border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-              placeholder="Enter email"
               required
-              autoComplete="email"
               disabled={loading}
+              autoComplete="email"
+              className="bg-white text-gray-900 border-gray-300"
+              placeholder="Enter email"
             />
           </div>
           <div>
-            <label className="block text-blue-600" htmlFor="password">Password</label>
-            <input
+            <FloatingLabel
+              variant="standard"
+              label="Password"
               id="password"
-              type="password"
               name="password"
+              type="password"
               value={formData.password}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 border rounded-md bg-white text-gray-900 border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-              placeholder="Enter password"
               required
-              autoComplete="new-password"
               disabled={loading}
+              autoComplete="new-password"
+              className="bg-white text-gray-900 border-gray-300"
+              placeholder="Enter password"
             />
           </div>
           <button
