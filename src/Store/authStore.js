@@ -73,7 +73,6 @@ export const useAuthStore = create(
           // After saving, reload users to ensure state is up to date (optional, for debug)
           users = JSON.parse(localStorage.getItem('users') || '[]');
           console.log('Users after signup:', users);
-alert('User Signup Successfully');
 // Do NOT set isLoggedIn to prevent navigation
           return { success: true, message: 'Signup successful, please log in' };
         } catch (error) {
