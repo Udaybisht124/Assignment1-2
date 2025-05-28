@@ -1,38 +1,56 @@
 import { useState } from 'react';
 import { useAuthStore } from '../Store/AuthStore';
-import { Link } from 'react-router-dom'; // <-- use react-router-dom for Link
-import { FloatingLabel } from 'flowbite-react'; // <-- Import FloatingLabel from flowbite-react
+import { Link, useNavigate } from 'react-router-dom';
+import { AlertComponent } from './Alert';
+import { FloatingLabel } from 'flowbite-react';
 
-// Add this style tag inside your component or in your CSS file for the animations
 const animatedBgStyles = `
   .animated-bg {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
     z-index: 0;
     overflow: hidden;
-    pointer-events: none; /* Prevent interaction */
+    pointer-events: none;
+    background:#1f2937;
+    animation: bgFadeIn 1s ease;
+  }
+  @keyframes bgFadeIn {
+    from { opacity: 0;}
+    to { opacity: 1;}
   }
   .bubble {
     position: absolute;
     opacity: 0.7;
+    border-radius: 50%;
     animation: floatUp 10s infinite linear;
+    background: radial-gradient(circle, rgba(255,255,255,0.6), rgba(30,60,114,0.2) 70%);
+    filter: blur(1px);
   }
-  .bubble1 { left: 10%; bottom: -100px; width: 80px; animation-delay: 0s; }
-  .bubble2 { left: 30%; bottom: -150px; width: 50px; animation-delay: 2s; }
-  .bubble3 { left: 60%; bottom: -120px; width: 100px; animation-delay: 4s; }
-  .bubble4 { left: 80%; bottom: -90px; width: 60px; animation-delay: 1s; }
-  .bubble5 { left: 50%; bottom: -110px; width: 40px; animation-delay: 3s; }
+  .bubble1 { left: 10%; bottom: -100px; width: 80px; height: 80px; animation-delay: 0s; }
+  .bubble2 { left: 30%; bottom: -150px; width: 50px; height: 50px; animation-delay: 2s; }
+  .bubble3 { left: 60%; bottom: -120px; width: 100px; height: 100px; animation-delay: 4s; }
+  .bubble4 { left: 80%; bottom: -90px; width: 60px; height: 60px; animation-delay: 1s; }
+  .bubble5 { left: 50%; bottom: -110px; width: 40px; height: 40px; animation-delay: 3s; }
   @keyframes floatUp {
     0% { transform: translateY(0) scale(1);}
     80% { opacity: 0.8; }
     100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
   }
+  .signup-form-fadein {
+    animation: fadeInForm 1s cubic-bezier(.47,1.64,.41,.8);
+  }
+  @keyframes fadeInForm {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
 `;
 
 export const LoginForm = () => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
-  const [error, setError] = useState(null);
+  const [alert, setAlert] = useState({ show: false, message: '', color: 'failure' });
+  const [loading, setLoading] = useState(false);
   const { login } = useAuthStore();
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -40,40 +58,46 @@ export const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null);
+    setAlert({ show: false, message: '', color: 'failure' });
+    setLoading(true);
     const result = await login(credentials);
+    setLoading(false);
+
     if (!result.success) {
-      setError(result.error);
+      setAlert({ show: true, message: result.error || "Login failed!", color: 'failure' });
+      return;
     }
+    setAlert({ show: true, message: "Login successful! Redirecting...", color: 'success' });
+
+    // Delay redirect so alert is visible
+    setTimeout(() => {
+      setAlert({ show: false, message: '', color: 'success' });
+      navigate('/dashboard'); // or your desired route
+    }, 1800);
   };
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen h-screen overflow-hidden shadow-4xl">
-      {/* Animated background */}
+    <div className="flex items-center justify-center min-h-screen h-screen bg-gray-900 relative">
       <style>{animatedBgStyles}</style>
-      <div className="animated-bg" aria-hidden="true">
-        {/* Animated SVG bubbles */}
-        <svg className="bubble bubble1" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="40" fill="#6dd5ed" />
-        </svg>
-        <svg className="bubble bubble2" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="25" fill="#2193b0" />
-        </svg>
-        <svg className="bubble bubble3" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="45" fill="#b721ff" />
-        </svg>
-        <svg className="bubble bubble4" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="30" fill="#21d4fd" />
-        </svg>
-        <svg className="bubble bubble5" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="20" fill="#fff" />
-        </svg>
+      {/* Animated background */}
+      <div className="animated-bg">
+        <div className="bubble bubble1"></div>
+        <div className="bubble bubble2"></div>
+        <div className="bubble bubble3"></div>
+        <div className="bubble bubble4"></div>
+        <div className="bubble bubble5"></div>
       </div>
-      {/* Login form content */}
-      <div className="max-w-md w-full p-8 bg-white rounded-lg shadow-2xl z-10" style={{marginTop:-75}}>
+
+      <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 signup-form-fadein" style={{ zIndex: 1 }}>
+        {/* Alert above the form */}
+        {alert.show && (
+          <div className="mb-6">
+            <AlertComponent message={alert.message} color={alert.color} />
+          </div>
+        )}
+
         <h2 className="text-2xl font-bold mb-6 text-blue-500 text-center">Login</h2>
-        {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
-        <form className="space-y-6 bg-transparent" onSubmit={handleSubmit}>
+        <form className="space-y-6 bg-white" onSubmit={handleSubmit} autoComplete="off">
           <div>
             <FloatingLabel
               variant="standard"
@@ -84,8 +108,7 @@ export const LoginForm = () => {
               value={credentials.email}
               onChange={handleInputChange}
               required
-              className="bg-white text-gray-900 border-gray-300"
-              placeholder="Enter email"
+              disabled={loading}
               autoComplete="email"
             />
           </div>
@@ -99,16 +122,26 @@ export const LoginForm = () => {
               value={credentials.password}
               onChange={handleInputChange}
               required
-              className="bg-white text-red-900 border-gray-300"
-              placeholder="Enter password"
-              autoComplete="false"
+              disabled={loading}
+              autoComplete="current-password"
             />
           </div>
           <button
             type="submit"
-            className="w-full px-4 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors shadow-md"
+            className={`w-full px-4 py-3 bg-blue-500 text-white rounded-md transition-colors shadow-md font-semibold flex items-center justify-center ${loading ? "opacity-60 cursor-not-allowed" : "hover:bg-blue-600"}`}
+            disabled={loading}
           >
-            Login
+            {loading ? (
+              <>
+                <svg className="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                </svg>
+                Logging in...
+              </>
+            ) : (
+              "Login"
+            )}
           </button>
           <p className="text-center text-gray-400">
             Don't have an account?{' '}
