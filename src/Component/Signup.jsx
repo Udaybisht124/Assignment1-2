@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { useAuthStore } from '../Store/AuthStore';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AlertComponent } from './Alert';
-// Import Flowbite's FloatingLabel component
 import { FloatingLabel } from 'flowbite-react';
 
 const animatedBgStyles = `
@@ -112,8 +110,6 @@ export const SignupForm = () => {
               required
               disabled={loading}
               autoComplete="username"
-              className="bg-white text-gray-900 border-gray-300"
-              placeholder="Enter username"
             />
           </div>
           <div>
@@ -128,8 +124,6 @@ export const SignupForm = () => {
               required
               disabled={loading}
               autoComplete="email"
-              className="bg-white text-gray-900 border-gray-300"
-              placeholder="Enter email"
             />
           </div>
           <div>
@@ -144,8 +138,6 @@ export const SignupForm = () => {
               required
               disabled={loading}
               autoComplete="new-password"
-              className="bg-white text-gray-900 border-gray-300"
-              placeholder="Enter password"
             />
           </div>
           <button
