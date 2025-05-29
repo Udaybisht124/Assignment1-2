@@ -1,52 +1,15 @@
+import { Carousel } from "flowbite-react";
 
-import {
-  Button,
-  Timeline,
-  TimelineItem,
-  TimelinePoint,
-  TimelineTime,
-  TimelineTitle,
-} from "flowbite-react";
-
-export function TimelineComponent() {
+export function CarousalComponent() {
   return (
-    <Timeline>
-      <TimelineItem>
-        <TimelinePoint />
-        <TimelineContent>
-          <TimelineTime>February 2022</TimelineTime>
-          <TimelineTitle>Application UI code in Tailwind CSS</TimelineTitle>
-          <TimelineBody>
-            Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order
-            E-commerce & Marketing pages.
-          </TimelineBody>
-          <Button color="gray">
-            Learn More
-            <HiArrowNarrowRight className="ml-2 h-3 w-3" />
-          </Button>
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelinePoint />
-        <TimelineContent>
-          <TimelineTime>March 2022</TimelineTime>
-          <TimelineTitle>Marketing UI design in Figma</TimelineTitle>
-          <TimelineBody>
-            All of the pages and components are first designed in Figma and we keep a parity between the two versions
-            even as we update the project.
-          </TimelineBody>
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelinePoint />
-        <TimelineContent>
-          <TimelineTime>April 2022</TimelineTime>
-          <TimelineTitle>E-Commerce UI code in Tailwind CSS</TimelineTitle>
-          <TimelineBody>
-            Get started with dozens of web components and interactive elements built on top of Tailwind CSS.
-          </TimelineBody>
-        </TimelineContent>
-      </TimelineItem>
-    </Timeline>
+    <div className="h-56 sm:h-64 xl:h-80 2xl:h-96 mt-10">
+      <Carousel>
+        <img src="src/assets/walpaper.jpg" alt="..." />
+        <img src="src/assets/Home.jpg" alt="..." />
+        <img src="src/assets/walpaper.jpg" alt="..." />
+        <img src="src/assets/Home.jpg" alt="..." />
+        <img src="src/assets/walpaper.jpg" alt="..." />
+      </Carousel>
+    </div>
   );
 }
