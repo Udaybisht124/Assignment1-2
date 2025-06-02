@@ -1,8 +1,8 @@
-import React from 'react';
-import { Navbar, Button } from 'flowbite-react';
-import { Link } from 'react-router-dom';
-import { useThemeStore } from '../Store/ThemeStore';
-import { useAuthStore } from '../Store/AuthStore';
+import React from "react";
+import { Navbar, Button } from "flowbite-react";
+import { Link } from "react-router-dom";
+import { useThemeStore } from "../Store/ThemeStore";
+import { useAuthStore } from "../Store/AuthStore";
 
 const AppNavbar = () => {
   const { isLoggedIn, logout } = useAuthStore();
@@ -12,9 +12,9 @@ const AppNavbar = () => {
     <Navbar
       fluid
       rounded
-      className="bg-[#0d1013] text-blue-400 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600"
+      className="bg-[#0d1013] text-blue-400 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600 h-20"
     >
-      <div className="flex flex-col w-full sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col w-full sm:flex-row sm:items-center sm:justify-between pt-2">
         {/* LOGO */}
         <Navbar.Brand
           as={Link}
@@ -46,7 +46,7 @@ const AppNavbar = () => {
                 className="bg-gray-200  text-blue-400 dark:bg-gray-800 dark:text-white"
                 onClick={toggleTheme}
               >
-                {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+                {theme === "light" ? "Dark Mode" : "Light Mode"}
               </Button>
               <Button
                 color="failure"
