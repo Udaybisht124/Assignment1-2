@@ -31,7 +31,7 @@ export function ContactUs() {
         <img
           src="https://addvalsolutions.com/assets/images/team/kulcare-team.webp"
           alt="Team"
-          className="w-72 h-auto rounded-lg shadow-lg object-contain"
+          className="w-96 h-auto mb-20 rounded-lg shadow-lg object-contain"
         />
       </div>
       {/* Form Section */}
