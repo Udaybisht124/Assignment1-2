@@ -1,11 +1,18 @@
-import { Button, Label, TextInput, Textarea } from "flowbite-react";
+import { Button, Label, TextInput, Textarea, Alert } from "flowbite-react";
 import { useState } from "react";
+import { useAuthStore } from "../Store/authStore";
 
 export function ContactUs() {
   const [formData, setFormData] = useState({
     username: "",
     message: "",
   });
+  const [alert, setAlert] = useState({
+    show: false,
+    type: "success",
+    message: "",
+  });
+  const contact = useAuthStore((state) => state.contact);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -15,10 +22,30 @@ export function ContactUs() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Message Submitted Successfully");
-    console.log("Submitted Data: ", formData);
+    // Map username to name for the backend
+    const response = await contact({
+      name: formData.username,
+      message: formData.message,
+    });
+    if (response.success) {
+      setAlert({
+        show: true,
+        type: "success",
+        message: response.message || "Message Submitted Successfully!",
+      });
+      setFormData({ username: "", message: "" });
+    } else {
+      setAlert({
+        show: true,
+        type: "failure",
+        message:
+          response.error || "Failed to submit message. Please try again.",
+      });
+    }
+    // Optionally, hide alert after a few seconds
+    setTimeout(() => setAlert((prev) => ({ ...prev, show: false })), 4000);
   };
 
   return (
@@ -39,6 +66,14 @@ export function ContactUs() {
         <div className="py-10 mb-10 mt-10 text-3xl mx-auto font-bold  text-blue-400 uppercase">
           Contact US
         </div>
+        {alert.show && (
+          <Alert
+            color={alert.type === "success" ? "success" : "failure"}
+            className="mb-4"
+          >
+            {alert.message}
+          </Alert>
+        )}
         <div>
           <form
             onSubmit={handleSubmit}

@@ -1,45 +1,51 @@
-import React from 'react';
-import { Footer } from 'flowbite-react';
-import { BsFacebook, BsInstagram, BsTwitter, BsGithub, BsDribbble } from 'react-icons/bs';
+import React from "react";
+import { Footer } from "flowbite-react";
+import {
+  BsFacebook,
+  BsInstagram,
+  BsTwitter,
+  BsGithub,
+  BsDribbble,
+} from "react-icons/bs";
 
 const socialLinks = [
   {
-    href: 'https://facebook.com',
-    label: 'Facebook',
+    href: "https://facebook.com",
+    label: "Facebook",
     icon: <BsFacebook size={22} />,
-    className: 'hover:text-blue-500'
+    className: "hover:text-blue-500",
   },
   {
-    href: 'https://instagram.com',
-    label: 'Instagram',
+    href: "https://instagram.com",
+    label: "Instagram",
     icon: <BsInstagram size={22} />,
-    className: 'hover:text-pink-500'
+    className: "hover:text-pink-500",
   },
   {
-    href: 'https://twitter.com',
-    label: 'Twitter',
+    href: "https://twitter.com",
+    label: "Twitter",
     icon: <BsTwitter size={22} />,
-    className: 'hover:text-sky-400'
+    className: "hover:text-sky-400",
   },
   {
-    href: 'https://github.com',
-    label: 'GitHub',
+    href: "https://github.com",
+    label: "GitHub",
     icon: <BsGithub size={22} />,
-    className: 'hover:text-gray-400'
+    className: "hover:text-gray-400",
   },
   {
-    href: 'https://dribbble.com',
-    label: 'Dribbble',
+    href: "https://dribbble.com",
+    label: "Dribbble",
     icon: <BsDribbble size={22} />,
-    className: 'hover:text-pink-400'
-  }
+    className: "hover:text-pink-400",
+  },
 ];
 
 const AppFooter = () => {
   return (
     <Footer
       container={true}
-      className="fixed bottom-0 left-0 w-full shadow-lg border-t border-gray-200 dark:text-[#1f2937] dark:border-gray-700 bg-gray-50  transition-colors duration-300"
+      className="fixed bottom-0 left-0 w-full shadow-lg border border-gray-200 dark:text-[#1f2937] dark:border-gray-700 bg-gray-50  transition-colors duration-300"
     >
       <div className="w-full flex flex-col md:flex-row items-center justify-between py-2 px-4 text-gray-800 dark:text-white">
         {/* Left: Logo & Company Name */}
@@ -49,7 +55,9 @@ const AppFooter = () => {
             alt="Addval Solutions Logo"
             className="h-7 w-7"
           />
-          <span className="font-semibold text-lg tracking-wide">Addval Solutions</span>
+          <span className="font-semibold text-lg tracking-wide">
+            Addval Solutions
+          </span>
         </div>
 
         {/* Center: Social Icons */}
@@ -70,11 +78,7 @@ const AppFooter = () => {
 
         {/* Right: Copyright */}
         <div className="text-sm text-gray-600 dark:text-gray-300">
-          <Footer.Copyright
-            href="/"
-            by="Addval Solutions"
-            year={2025}
-          />
+          <Footer.Copyright href="/" by="Addval Solutions" year={2025} />
         </div>
       </div>
     </Footer>

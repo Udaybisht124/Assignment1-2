@@ -6,18 +6,21 @@ import { CarousalComponent } from "../Component/Carousal";
 const Home = () => {
   const projects = [
     {
+      id: 1,
       name: "kulcare",
       description:
         "Virtual care platform for India’s doctors. SaaS solution with full suite of digital clinic tools like telemedicine, scheduling, payments, eRx, and complete EHR.",
       logo: "https://addvalsolutions.com/assets/images/capabilities/web-and-mobile/kulcare-new.png",
     },
     {
+      id: 2,
       name: "InAuth",
       description:
-        "Virtual care platform for India’s doctors. SaaS solution with full suite of digital clinic tools like telemedicine, scheduling, payments, eRx, and complete EHR.",
+        "InAuth is a mobile security application that delivers the deepest device authentication technology in the market to authenticate, reduce risk and maximize digital transaction in today’s increasingly complex, mobile-first world",
       logo: "https://addvalsolutions.com/assets/images/work/inauth-opt.jpeg",
     },
     {
+      id: 3,
       name: "Calvin Klein",
       description:
         "We built an Augmented Reality (AR) application back to showcase CK products. The AR app was launched simultaneously worldwide to showcase the ckOne brand.",
@@ -30,7 +33,7 @@ const Home = () => {
       <div
         className="flex items-center justify-center h-screen p-4 bg-red dark:bg-blue-700"
         style={{
-          backgroundImage: `url(src/assets/Home.jpg)`,
+          backgroundImage: 'URL("src/assets/Home.jpg")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -77,7 +80,7 @@ const Home = () => {
         <CarousalComponent />
       </div>
       <section
-        className="dark:from-gray-950 dark:via-gray-900 dark:to-blue-950 h-screen px-4  sm:px-8 md:px-16 lg:px-20 flex items-center"
+        className="dark:from-gray-950 dark:via-gray-900 dark:to-blue-950 h-screen px-4  sm:px-8 md:px-16 md:pt-96 lg:px-20 flex items-center"
         style={{ backgroundColor: "#212c3f", paddingTop: -200 }}
       >
         <div className="max-w-7xl mx-auto w-full">
@@ -92,11 +95,11 @@ const Home = () => {
         We are proud to collaborate with some of the world’s most recognizable brands and innovators.
       </p> */}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid  sm:h-screen grid-cols-1 sm:grid-cols-2 sm:mt-20 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => {
               return (
                 <div
-                  key={index}
+                  key={project.id}
                   className={`
               group flex flex-col items-center justify-between
               bg-white dark:bg-gray-800 rounded-2xl shadow-md
