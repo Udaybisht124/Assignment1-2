@@ -1,90 +1,199 @@
 import React from "react";
 import "../index.css";
 
-// Work items data array
+// Work items data array with enhanced structure
 const workItems = [
   {
+    id: 1,
     title: "Consumer Internet",
-    icon: "https://cdn-icons-png.flaticon.com/512/4144/4144497.png", // Cloud icon
-    points: ["Native Mobile Apps", "Web Apps", "Cloud Orchestration"],
+    icon: "https://cdn-icons-png.flaticon.com/512/4144/4144497.png",
+    points: ["Native Mobile Apps", "Web Applications", "Cloud Orchestration"],
+    gradient: "from-blue-500 to-cyan-500",
+    bgColor: "bg-blue-50",
+    iconBg: "bg-blue-100",
+    textColor: "text-blue-600",
+    hoverShadow: "hover:shadow-blue-500/25",
   },
   {
+    id: 2,
     title: "Robotics & Automation",
-    icon: "https://cdn-icons-png.flaticon.com/512/1061/1061164.png", // Robot icon
+    icon: "https://cdn-icons-png.flaticon.com/512/1061/1061164.png",
     points: [
       "Drive by Wire Systems",
       "Autonomous Mobile Robots",
       "Indoor Guided Systems",
     ],
+    gradient: "from-emerald-500 to-teal-500",
+    bgColor: "bg-emerald-50",
+    iconBg: "bg-emerald-100",
+    textColor: "text-emerald-600",
+    hoverShadow: "hover:shadow-emerald-500/25",
   },
   {
+    id: 3,
     title: "Internet of Things",
-    icon: "https://cdn-icons-png.flaticon.com/512/1048/1048953.png", // Plug icon
-    points: ["Hardware", "Scalable Interfaces", "Multi protocol gateway"],
+    icon: "https://cdn-icons-png.flaticon.com/512/1048/1048953.png",
+    points: ["Hardware Solutions", "Scalable Interfaces", "Multi-protocol Gateway"],
+    gradient: "from-purple-500 to-indigo-500",
+    bgColor: "bg-purple-50",
+    iconBg: "bg-purple-100",
+    textColor: "text-purple-600",
+    hoverShadow: "hover:shadow-purple-500/25",
   },
   {
-    title: "AI & ML",
-    icon: "https://cdn-icons-png.flaticon.com/512/2942/2942927.png", // AI/ML icon
-    points: ["Predictive Modelling", "Recommender Systems", "Chatbots"],
+    id: 4,
+    title: "AI & Machine Learning",
+    icon: "https://cdn-icons-png.flaticon.com/512/2942/2942927.png",
+    points: ["Predictive Modeling", "Recommender Systems", "Intelligent Chatbots"],
+    gradient: "from-orange-500 to-red-500",
+    bgColor: "bg-orange-50",
+    iconBg: "bg-orange-100",
+    textColor: "text-orange-600",
+    hoverShadow: "hover:shadow-orange-500/25",
   },
 ];
 
 export default function OurWorkSection() {
   return (
-    <section className="h-screen sm:pt-10 flex flex-col items-center justify-center bg-blue-400  dark:bg-gray-900 py-8 sm:py-10 md:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-12 overflow-y-auto">
-      <div
-        className="max-w-7xl w-full mx-auto flex flex-col justify-center items-center"
-        style={{ marginTop: "-250px" }}
-      >
-        <div className="flex flex-col w-full text-center ">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-blue-400 tracking-tight mb-4 sm:mb-6">
-            Our Work
+    <section className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-slate-900 dark:to-blue-900 py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full mb-6">
+            <svg
+              className="w-8 h-8 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+              />
+            </svg>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
+            Our <span className="bg-blue-400 dark:bg-blue-500  bg-clip-text text-transparent">Expertise</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 dark:text-gray-200 font-extrabold max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10">
-            Visions become reality with the right team and the right plan.
+          
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Transforming visions into reality through cutting-edge technology solutions. 
+            We deliver excellence across multiple domains with innovation at our core.
           </p>
+          
+          {/* Decorative line */}
+          <div className="flex items-center justify-center mt-8">
+            <div className="h-1 w-24 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full"></div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:h-96 md:w-72 lg:gap-10 bg-white dark:bg-gray-800 shadow-xl w-full max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 rounded rounded-xl flex-1">
-          {workItems.map((item) => (
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+          {workItems.map((item, index) => (
             <div
-              key={item.title}
-              className="shadow-xl rounded-[2.5rem] text-gray-900 dark:text-blue-400 border border-gray-200 dark:border-blue-700 hover:scale-[1.04] hover:shadow-blue-500/50 transition-transform duration-300 group relative overflow-hidden flex flex-col min-h-[18rem] sm:min-h-[20rem]"
+              key={item.id}
+              className={`
+                group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg 
+                border border-gray-200 dark:border-gray-700
+                transition-all duration-500 ease-out
+                hover:-translate-y-2 hover:scale-[1.02]
+                hover:shadow-2xl ${item.hoverShadow}
+                overflow-hidden
+              `}
+              style={{
+                animationDelay: `${index * 150}ms`,
+              }}
             >
-              <div className="flex flex-col items-center py-6 px-4 sm:px-6 h-full">
-                <div className="bg-blue-600/80 dark:bg-blue-800/80 rounded-full p-4 sm:p-6 mb-4 sm:mb-6 border-4 border-blue-400 dark:border-blue-600 shadow-xl transition-transform group-hover:scale-110">
-                  <img
-                    src={item.icon}
-                    alt={item.title}
-                    className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-contain shadow-lg"
-                  />
+              {/* Background gradient overlay */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+              
+              {/* Card content */}
+              <div className="relative p-8">
+                {/* Icon section */}
+                <div className="flex justify-center mb-6">
+                  <div className={`
+                    relative ${item.iconBg} dark:bg-gray-700 rounded-2xl p-4
+                    transition-all duration-300 group-hover:scale-110 group-hover:rotate-3
+                    shadow-lg group-hover:shadow-xl
+                  `}>
+                    <img
+                      src={item.icon}
+                      alt={`${item.title} icon`}
+                      className="w-12 h-12 object-contain filter group-hover:brightness-110 transition-all duration-300"
+                      loading="lazy"
+                    />
+                    
+                    {/* Glow effect */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500`}></div>
+                  </div>
                 </div>
-                <h5 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-blue-200 dark:text-blue-300 mb-4 text-center">
+
+                {/* Title */}
+                <h3 className={`
+                  text-xl font-bold text-center mb-6 
+                  text-gray-900 dark:text-white
+                  group-hover:${item.textColor} dark:group-hover:text-white
+                  transition-colors duration-300
+                `}>
                   {item.title}
-                </h5>
-                <ul className="space-y-3 flex flex-col items-start text-sm sm:text-base lg:text-lg font-medium text-blue-400 dark:text-blue-200 flex-1">
-                  {item.points.map((point) => (
+                </h3>
+
+                {/* Features list */}
+                <ul className="space-y-3">
+                  {item.points.map((point, pointIndex) => (
                     <li
-                      key={point}
-                      className="flex items-center justify-center gap-2 sm:gap-3"
+                      key={pointIndex}
+                      className="flex items-start gap-3 text-gray-600 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300"
                     >
-                      <span>
-                        <svg
-                          className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 dark:text-blue-200"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <circle cx="10" cy="10" r="10" />
-                        </svg>
+                      <div className={`
+                        flex-shrink-0 w-2 h-2 rounded-full mt-2
+                        bg-gradient-to-r ${item.gradient}
+                        group-hover:scale-125 transition-transform duration-300
+                      `}></div>
+                      <span className="text-sm font-medium leading-relaxed">
+                        {point}
                       </span>
-                      <span>{point}</span>
                     </li>
                   ))}
                 </ul>
+
+                {/* Bottom accent */}
+                <div className={`
+                  absolute bottom-0 left-0 right-0 h-1 
+                  bg-gradient-to-r ${item.gradient}
+                  transform scale-x-0 group-hover:scale-x-100
+                  transition-transform duration-500 origin-left
+                `}></div>
               </div>
-              <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-60 transition-opacity duration-300 bg-blue-500 dark:bg-blue-700 blur-3xl rounded-[2.5rem]" />
+
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
             </div>
           ))}
+        </div>
+
+        {/* Call to action */}
+        <div className="text-center mt-16">
+          <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg">
+            Ready to bring your vision to life?
+          </p>
+          <button className="
+            inline-flex items-center gap-2 px-8 py-4 
+            bg-gradient-to-r from-blue-600 to-indigo-600 
+            text-white font-semibold rounded-xl
+            shadow-lg hover:shadow-xl
+            transform hover:-translate-y-1 hover:scale-105
+            transition-all duration-300
+            focus:outline-none focus:ring-4 focus:ring-blue-500/50
+          ">
+            <span>Get Started Today</span>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
         </div>
       </div>
     </section>

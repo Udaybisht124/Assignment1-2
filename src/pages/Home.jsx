@@ -1,9 +1,15 @@
+// Import React library for component creation
 import React from "react";
+// Import global CSS styles
 import "../index.css";
+// Import Card component from Flowbite React (currently unused)
 import { Card } from "flowbite-react";
+// Import custom Carousel component
 import { CarousalComponent } from "../Component/Carousal";
 
+// Main Home page component
 const Home = () => {
+  // Array of project data to display in the projects section
   const projects = [
     {
       id: 1,
