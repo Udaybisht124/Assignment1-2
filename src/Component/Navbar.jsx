@@ -44,7 +44,7 @@ const AppNavbar = () => {
               alt="Addval Logo" // Alt text for accessibility
             />
             {/* Company name text */}
-            <span className="self-center text-lg text-blue-500 sm:text-xl font-semibold whitespace-nowrap dark:text-gray-200 ml-2">
+            <span className="self-center text-lg text-blue-500 sm:text-xl font-semibold whitespace-nowrap dark:text-gray-200 ml-2 open-sans">
               Addval Solutions
             </span>
           </div>
@@ -64,7 +64,7 @@ const AppNavbar = () => {
               {/* Theme toggle button */}
               <Button
                 color="light" // Flowbite button color variant
-                className="bg-gray-200  text-blue-400 dark:bg-gray-800 dark:text-white" // Custom styling
+                className="bg-gray-200  text-blue-400 dark:bg-gray-800 dark:text-white open-sans" // Custom styling
                 onClick={toggleTheme} // Toggle theme on click
               >
                 {/* Dynamic button text based on current theme */}
@@ -73,7 +73,7 @@ const AppNavbar = () => {
               {/* Logout button */}
               <Button
                 color="failure" // Red color variant for logout
-                className="bg-red-500 text-white dark:bg-blue-600 hover:bg-red-600" // Custom styling with hover effect
+                className="bg-red-500 text-white dark:bg-blue-600 hover:bg-red-600 open-sans" // Custom styling with hover effect
                 onClick={logout} // Call logout function on click
               >
                 Logout
@@ -89,7 +89,7 @@ const AppNavbar = () => {
 
         {/* COLLAPSE LINKS */}
         {/* Collapsible navigation menu */}
-        <Navbar.Collapse>
+        <Navbar.Collapse className="open-sans font-bold">
           {/* Home navigation link */}
           <Navbar.Link as={Link} to="/home" active>
             Home
