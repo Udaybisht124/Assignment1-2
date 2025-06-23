@@ -56,7 +56,7 @@ const Services = () => {
           <path d="M8 12h8M8 16h6" stroke="currentColor" strokeWidth={1.5} />
         </svg>
       ),
-      gradient: "from-blue-600 to-cyan-600",
+      gradient: "from-blue-500 to-yellow-400",
       bgGradient: "from-blue-50 to-cyan-50",
       darkBgGradient: "from-blue-900/20 to-cyan-900/20",
       accentColor: "blue",
@@ -98,7 +98,7 @@ const Services = () => {
           />
         </svg>
       ),
-      gradient: "from-emerald-600 to-teal-600",
+      gradient: "from-purple-600 to-indigo-600",
       bgGradient: "from-emerald-50 to-teal-50",
       darkBgGradient: "from-emerald-900/20 to-teal-900/20",
       accentColor: "emerald",
@@ -183,7 +183,7 @@ const Services = () => {
           <circle cx="12" cy="12" r="8" className="fill-current opacity-10" />
         </svg>
       ),
-      gradient: "from-orange-600 to-red-600",
+      gradient: "from-blue-500 to-yellow-400",
       bgGradient: "from-orange-50 to-red-50",
       darkBgGradient: "from-orange-900/20 to-red-900/20",
       accentColor: "orange",
@@ -230,7 +230,7 @@ const Services = () => {
     <section className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-16 pt-10">
+        <div className="text-center mb-16">
           {/* Title */}
           <h1
             className={`
@@ -242,6 +242,7 @@ const Services = () => {
                 : "opacity-0 transform translate-y-4"
             }
           `}
+            style={{ paddingTop: "80px" }}
           >
             <span className="text-gray-900 dark:text-white">Our </span>
             <span className="text-blue-500 ml-2">Services</span>
@@ -251,7 +252,7 @@ const Services = () => {
           <p
             className={`
             text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8
-            transition-all duration-700 delay-200 Caprasimo
+            transition-all duration-700 delay-200 open-sans
             ${
               showContent
                 ? "opacity-100 transform translate-y-0"
@@ -276,7 +277,12 @@ const Services = () => {
             }
           `}
           >
-            <div className="h-1 w-24 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full"></div>
+            <div className="flex items-center justify-center mt-4 pb-10 ">
+              <div
+                className="h-1 bg-blue-600 rounded-full"
+                style={{ width: "200px" }}
+              ></div>
+            </div>
           </div>
         </div>
 
@@ -316,7 +322,7 @@ const Services = () => {
         {/* Services Grid */}
         <div
           className={`
-          grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16
+          grid grid-cols-1 lg:grid-cols-2 mb-16
           transition-all duration-700 delay-700  mt-10
           ${
             showContent
@@ -324,6 +330,7 @@ const Services = () => {
               : "opacity-0 transform translate-y-8"
           }
         `}
+          style={{ gap: "40px" }}
         >
           {services.map((service, index) => {
             const accentClasses = getAccentClasses(service.accentColor);
@@ -479,35 +486,50 @@ const Services = () => {
           }
         `}
         >
-          <h3 className="text-3xl font-bold text-center mt-10 text-gray-900 dark:text-white mb-12">
+          <h3
+            className="text-5xl font-bold text-center text-gray-900 dark:text-white mb-12"
+            style={{ paddingTop: "100px" }}
+          >
             OUR <span className="text-blue-500 mt-4">PROCESS</span>
           </h3>
-          {/* 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               {
                 step: "01",
                 title: "Discovery",
                 description: "Understanding your needs and goals",
+                gradient: "from-blue-600 to-indigo-600",
               },
               {
                 step: "02",
                 title: "Planning",
                 description: "Strategic roadmap and timeline",
+                gradient: "from-purple-600 to-pink-600",
               },
               {
                 step: "03",
                 title: "Development",
                 description: "Building with best practices",
+                gradient: "from-green-600 to-yellow-600",
               },
               {
                 step: "04",
                 title: "Delivery",
                 description: "Launch and ongoing support",
+                gradient: "from-orange-600 to-red-600",
               },
             ].map((process, index) => (
-              <div key={index} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-xl rounded-full mb-4">
+              <div
+                key={index}
+                className="text-center border border-blue-400 dark:border-blue-400 dark:bg-indigo-700"
+                style={{
+                  paddingTop: "65px",
+                  paddingBottom: "50px",
+                  marginTop: "80px",
+                  height: "300px",
+                }}
+              >
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r text-white font-bold text-xl rounded-full mb-4">
                   {process.step}
                 </div>
                 <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
@@ -518,7 +540,7 @@ const Services = () => {
                 </p>
               </div>
             ))}
-          </div> */}
+          </div>
         </div>
 
         {/* Bottom CTA Section */}
@@ -533,10 +555,16 @@ const Services = () => {
           }
         `}
         >
-          <h3 className="text-3xl font-bold text-white mb-4 open-sans">
+          <h3
+            className="text-3xl font-bold text-white mb-4 open-sans"
+            style={{ paddingTop: "30px", paddingBottom: "15px" }}
+          >
             Ready to Transform Your Business?
           </h3>
-          <p className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg open-sans">
+          <p
+            className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg open-sans"
+            style={{ paddingTop: "10px", paddingBottom: "15px" }}
+          >
             Let's discuss your project requirements and create a custom solution
             that drives results. Our expert team is ready to bring your vision
             to life.
