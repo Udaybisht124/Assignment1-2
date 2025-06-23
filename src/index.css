@@ -2,7 +2,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 .navbar {
   background-color: #0d1013;
@@ -18,6 +19,10 @@
   position: relative; /* Ensure absolute children are positioned correctly */
 }
 
+.Caprasimo{
+  font-family:Caprasimo;
+}
+
 /* Nav link styling */
 .nav-link {
   position: relative;
@@ -27,6 +32,9 @@
   border-radius: 4px;
   text-decoration: none;
   transition: color 0.3s ease-in-out;
+}
+.open-sans{
+  font-family:Open-Sans;
 }
 
 .nav-link:hover {
