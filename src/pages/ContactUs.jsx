@@ -110,7 +110,7 @@ export function ContactUs() {
       </div>
       {/* Form Section */}
       <div className="flex flex-col w-full max-w-xl lg:max-w-full lg:mt-32 lg:h-36">
-        <div className="py-10 mb-10 mt-10 text-3xl mx-auto font-bold text-blue-400 uppercase">
+        <div className="py-10 mb-10 mt-10 text-5xl mx-auto font-bold text-blue-400 uppercase open-sans">
           Contact US
         </div>
         {alert.show && (
