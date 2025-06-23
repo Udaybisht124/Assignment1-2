@@ -18,7 +18,8 @@ const Clients = () => {
     {
       id: 1,
       name: "Accenture",
-      description: "A leading technology company specializing in software solutions and digital transformation services.",
+      description:
+        "A leading technology company specializing in software solutions and digital transformation services.",
       logo: "https://addvalsolutions.com/assets/images/clients/logos/accenture.png",
       industry: "Technology Consulting",
       partnership: "Since 2019",
@@ -27,11 +28,13 @@ const Clients = () => {
       bgGradient: "from-blue-50 to-indigo-50",
       darkBgGradient: "from-blue-900/20 to-indigo-900/20",
       accentColor: "blue",
+      descriptionClasses: "text-blue-600 dark:text-blue-400",
     },
     {
       id: 2,
       name: "Vodafone",
-      description: "A global leader in telecommunications and technology, connecting millions worldwide.",
+      description:
+        "A global leader in telecommunications and technology, connecting millions worldwide.",
       logo: "https://addvalsolutions.com/assets/images/clients/logos/vodafone.png",
       industry: "Telecommunications",
       partnership: "Since 2020",
@@ -40,11 +43,13 @@ const Clients = () => {
       bgGradient: "from-red-50 to-pink-50",
       darkBgGradient: "from-red-900/20 to-pink-900/20",
       accentColor: "red",
+      descriptionClasses: "text-red-600 dark:text-red-400",
     },
     {
       id: 3,
       name: "Calvin Klein",
-      description: "Premium fashion brand known for iconic design, style, and innovative marketing approaches.",
+      description:
+        "Premium fashion brand known for iconic design, style, and innovative marketing approaches.",
       logo: "https://addvalsolutions.com/assets/images/clients/logos/ck.png",
       industry: "Fashion & Retail",
       partnership: "Since 2021",
@@ -53,6 +58,7 @@ const Clients = () => {
       bgGradient: "from-purple-50 to-violet-50",
       darkBgGradient: "from-purple-900/20 to-violet-900/20",
       accentColor: "purple",
+      descriptionClasses: "text-purple-600 dark:text-purple-400",
     },
   ];
 
@@ -89,9 +95,9 @@ const Clients = () => {
         {/* Header Section */}
         <div className="text-center mb-16">
           {/* Icon */}
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full mb-6 shadow-lg">
+          {/* <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full mb-6 shadow-lg">
             <svg
-              className="w-8 h-8 text-white"
+              className="w-8 h-8 text-white mt-10"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -103,46 +109,74 @@ const Clients = () => {
                 d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
               />
             </svg>
-          </div>
+          </div> */}
 
           {/* Title */}
-          <h1 className={`
-            text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight
+          <h1
+            className={`
+            text-4xl pt-20 md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight
             transition-all duration-700
-            ${showContent ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'}
-          `}>
-            <span className="text-gray-900 dark:text-white">Our Esteemed </span>
-            <span className="text-blue-500" >             Clients
+            ${
+              showContent
+                ? "opacity-100 transform translate-y-0"
+                : "opacity-0 transform translate-y-4"
+            }
+          `}
+          >
+            <span
+              className="text-gray-900 dark:text-white"
+              style={{ fontFamily: "Open-Sans" }}
+            >
+              Our Esteemed{" "}
             </span>
+            <span className="text-blue-500"> Clients</span>
           </h1>
 
           {/* Subtitle */}
-          <p className={`
-            text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8
+          <p
+            className={`
+            text-lg text-gray-600  pt-5  dark:text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8
             transition-all duration-700 delay-200
-            ${showContent ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'}
-          `}>
-            We are proud to collaborate with some of the world's most recognizable brands and innovators, 
-            delivering exceptional results that drive their success forward.
+            ${
+              showContent
+                ? "opacity-100 transform translate-y-0"
+                : "opacity-0 transform translate-y-4"
+            }
+          `}
+          >
+            We are proud to collaborate with some of the world's most
+            recognizable brands and innovators, delivering exceptional results
+            that drive their success forward.
           </p>
-          h1
 
           {/* Decorative line */}
-          <div className={`
+          <div
+            className={`
             flex items-center justify-center
             transition-all duration-500 delay-400
-            ${showContent ? 'opacity-100 transform scale-100' : 'opacity-0 transform scale-75'}
-          `}>
+            ${
+              showContent
+                ? "opacity-100 transform scale-100"
+                : "opacity-0 transform scale-75"
+            }
+          `}
+          >
             <div className="h-1 w-24 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full"></div>
           </div>
         </div>
 
         {/* Stats Section */}
-        <div className={`
+        <div
+          className={`
           grid grid-cols-1 md:grid-cols-3 gap-8 mb-16
-          transition-all duration-700 delay-500
-          ${showContent ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'}
-        `}>
+          transition-all duration-700 delay-500 pt-5
+          ${
+            showContent
+              ? "opacity-100 transform translate-y-0"
+              : "opacity-0 transform translate-y-4"
+          }
+        `}
+        >
           {[
             { number: "50+", label: "Global Clients", icon: "🌍" },
             { number: "200+", label: "Projects Delivered", icon: "🚀" },
@@ -150,7 +184,7 @@ const Clients = () => {
           ].map((stat, index) => (
             <div
               key={index}
-              className="text-center p-6 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50"
+              className="text-center p-6 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50 mb-24"
             >
               <div className="text-3xl mb-2">{stat.icon}</div>
               <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1">
@@ -164,14 +198,21 @@ const Clients = () => {
         </div>
 
         {/* Clients Grid */}
-        <div className={`
+        <div
+          className={`
           grid grid-cols-1 lg:grid-cols-3 gap-8
-          transition-all duration-700 delay-700
-          ${showContent ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}
-        `}>
+          transition-all duration-700 delay-700  pt-8
+          my-10
+          ${
+            showContent
+              ? "opacity-100 transform translate-y-0"
+              : "opacity-0 transform translate-y-8"
+          }
+        `}
+        >
           {clients.map((client, index) => {
             const accentClasses = getAccentClasses(client.accentColor);
-            
+
             return (
               <div
                 key={client.id}
@@ -184,61 +225,71 @@ const Clients = () => {
                   overflow-hidden
                 `}
                 style={{
-                  animationDelay: `${(index * 200) + 800}ms`,
+                  animationDelay: `${index * 200 + 800}ms`,
                 }}
               >
                 {/* Background gradient overlay */}
-                <div className={`
+                <div
+                  className={`
                   absolute inset-0 bg-gradient-to-br ${client.gradient} 
                   opacity-0 group-hover:opacity-5 transition-opacity duration-500
-                `}></div>
+                `}
+                ></div>
 
                 {/* Card content */}
-                <div className="relative p-8">
+                <div className="relative p-8 flex flex-col items-center gap-3">
                   {/* Logo section */}
                   <div className="flex justify-center mb-6">
-                    <div className={`
+                    <div
+                      className={`
                       relative ${accentClasses.bg} rounded-3xl p-6
                       transition-all duration-300 group-hover:scale-110 group-hover:rotate-2
                       shadow-lg group-hover:shadow-xl ring-4 ${accentClasses.ring}
-                    `}>
+                    `}
+                    >
                       <img
                         src={client.logo}
                         alt={`${client.name} Logo`}
                         className="w-16 h-16 object-contain filter group-hover:brightness-110 transition-all duration-300"
                         loading="lazy"
                       />
-                      
+
                       {/* Glow effect */}
-                      <div className={`
+                      <div
+                        className={`
                         absolute inset-0 bg-gradient-to-br ${client.gradient} 
                         rounded-3xl opacity-0 group-hover:opacity-20 blur-xl 
                         transition-all duration-500
-                      `}></div>
+                      `}
+                      ></div>
                     </div>
                   </div>
 
                   {/* Client name */}
-                  <h2 className={`
+                  <h2
+                    className={`
                     text-2xl font-bold text-center mb-3
                     text-gray-900 dark:text-white
                     group-hover:${accentClasses.text}
                     transition-colors duration-300
-                  `}>
+                  `}
+                  >
                     {client.name}
                   </h2>
 
                   {/* Industry tag */}
-                  <div className={`
-                    inline-flex items-center px-3 py-1 rounded-full text-xs font-medium mb-4
+                  <div
+                    className={`
+                    inline-flex py-3 px-8 mx-auto justify-center rounded-full text-xs font-bold mb-4
                     ${accentClasses.bg} ${accentClasses.text} ${accentClasses.border}
-                    mx-auto block w-fit
-                  `}>
+                     block w-fit
+                  `}
+                  >
                     {client.industry}
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-center">
+                  <p className="eading-relaxed mb-6 text-center">
                     {client.description}
                   </p>
 
@@ -263,23 +314,27 @@ const Clients = () => {
                   </div>
 
                   {/* CTA Button */}
-                  <button className={`
+                  <button
+                    className={`
                     w-full py-3 px-6 rounded-xl font-semibold
                     bg-gradient-to-r ${client.gradient}
                     text-white shadow-lg hover:shadow-xl
                     transform hover:scale-105 transition-all duration-300
                     focus:outline-none focus:ring-4 focus:ring-offset-2 ${accentClasses.ring}
-                  `}>
+                  `}
+                  >
                     View Case Studies
                   </button>
 
                   {/* Bottom accent */}
-                  <div className={`
+                  <div
+                    className={`
                     absolute bottom-0 left-0 right-0 h-1 
                     bg-gradient-to-r ${client.gradient}
                     transform scale-x-0 group-hover:scale-x-100
                     transition-transform duration-500 origin-left
-                  `}></div>
+                  `}
+                  ></div>
                 </div>
 
                 {/* Hover overlay */}
@@ -290,28 +345,47 @@ const Clients = () => {
         </div>
 
         {/* Bottom CTA Section */}
-        <div className={`
+        <div
+          className={`
           text-center mt-16 p-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl
           transition-all duration-700 delay-1000
-          ${showContent ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'}
-        `}>
-          <h3 className="text-2xl font-bold text-white mb-4">
+          ${
+            showContent
+              ? "opacity-100 transform translate-y-0"
+              : "opacity-0 transform translate-y-4"
+          }
+        `}
+        >
+          <h3 className="text-2xl font-bold text-white mb-4 py-3">
             Ready to Join Our Success Stories?
           </h3>
-          <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Let's discuss how we can help transform your business with our proven expertise and innovative solutions.
+          <p className="text-blue-100 mb-6 max-w-2xl mx-auto pb-10">
+            Let's discuss how we can help transform your business with our
+            proven expertise and innovative solutions.
           </p>
-          <button className="
+          <button
+            className="
             inline-flex items-center gap-2 px-8 py-4 
             bg-white text-blue-600 font-semibold rounded-xl
             shadow-lg hover:shadow-xl hover:bg-gray-50
             transform hover:-translate-y-1 hover:scale-105
             transition-all duration-300
             focus:outline-none focus:ring-4 focus:ring-white/50
-          ">
+          "
+          >
             <span>Start Your Project</span>
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
             </svg>
           </button>
         </div>
