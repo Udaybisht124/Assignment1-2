@@ -277,7 +277,7 @@ const Services = () => {
             }
           `}
           >
-            <div className="flex items-center justify-center mt-4 pb-10 ">
+            <div className="flex items-center justify-center mt-1 pb-10">
               <div
                 className="h-1 bg-blue-600 rounded-full"
                 style={{ width: "200px" }}
@@ -349,6 +349,7 @@ const Services = () => {
                 `}
                 style={{
                   animationDelay: `${index * 200 + 800}ms`,
+                  marginTop: "30px",
                 }}
               >
                 {/* Background gradient overlay */}
