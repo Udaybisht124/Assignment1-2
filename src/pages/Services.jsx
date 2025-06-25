@@ -1,6 +1,6 @@
-// Import React library and hooks for component creation and state management
+
 import React, { useState, useEffect } from "react";
-// Import global CSS styles
+
 import "../index.css";
 import { RiPhoneFindFill } from "react-icons/ri";
 
