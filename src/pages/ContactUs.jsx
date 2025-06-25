@@ -2,6 +2,10 @@ import { Button, Label, TextInput, Textarea, Alert } from "flowbite-react";
 import { useState } from "react";
 import { useAuthStore } from "../Store/authStore";
 
+/**
+ * ContactUs component for handling contact form submissions.
+ * @component
+ */
 export function ContactUs() {
   const [formData, setFormData] = useState({
     name: "",
@@ -14,11 +18,14 @@ export function ContactUs() {
   });
   const contact = useAuthStore((state) => state.contact);
 
+  /**
+   * Validates contact form fields.
+   * @returns {boolean} True if all fields are valid, otherwise false.
+   */
   const validateContactFields = () => {
     const { name, message } = formData;
     const nameRegex = /^[a-zA-Z\s]+$/; // Allows alphabets and spaces
 
-    // Name validation: at least 4 characters, only alphabets and spaces
     if (name.length < 4) {
       setAlert({
         show: true,
@@ -36,7 +43,6 @@ export function ContactUs() {
       return false;
     }
 
-    // Message validation: 10 to 100 characters
     if (message.length < 10) {
       setAlert({
         show: true,
@@ -57,6 +63,10 @@ export function ContactUs() {
     return true;
   };
 
+  /**
+   * Handles form input changes.
+   * @param {Object} e - Event object.
+   */
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData({
@@ -65,12 +75,15 @@ export function ContactUs() {
     });
   };
 
+  /**
+   * Handles form submission.
+   * @param {Object} e - Event object.
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateContactFields()) {
       return;
     }
-    // Map form data to backend expected format
     const response = await contact({
       name: formData.name,
       message: formData.message,
@@ -91,7 +104,6 @@ export function ContactUs() {
       });
     }
 
-    // Hide alert after 4 seconds
     setTimeout(() => setAlert((prev) => ({ ...prev, show: false })), 4000);
   };
 
@@ -100,15 +112,14 @@ export function ContactUs() {
       className="flex flex-col lg:flex-row lg:gap-8 items-center justify-center h-screen max-w-full bg-gray-100 dark:bg-gray-900 px-4 py-4 lg:px-auto lg:py-10"
       style={{ paddingBottom: 220 }}
     >
-      {/* Image Section */}
       <div className="flex-shrink-0 mb-10 lg:mb-32 lg:mr-16 flex justify-center items-center">
         <img
           src="https://addvalsolutions.com/assets/images/team/kulcare-team.webp"
           alt="Team"
-          className="w-96 h-auto mb-20 rounded-lg shadow-lg object-contain"
+          className="h-auto mb-20 rounded-lg shadow-lg object-contain"
+          style={{ width: "450px", marginBottom: "100px", marginRight: "20px" }}
         />
       </div>
-      {/* Form Section */}
       <div className="flex flex-col w-full max-w-xl lg:max-w-full lg:mt-32 lg:h-36">
         <div className="py-10 mb-10 mt-10 text-5xl mx-auto font-bold text-blue-400 uppercase open-sans">
           Contact US

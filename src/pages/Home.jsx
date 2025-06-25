@@ -1,15 +1,15 @@
-// Import React library for component creation
-import React from "react";
-// Import global CSS styles
-import "../index.css";
-// Import Card component from Flowbite React (currently unused)
-import { Card } from "flowbite-react";
-// Import custom Carousel component
+/**
+ * Main Home page component
+ *
+ * @returns {React.ReactElement} The JSX element for the Home page
+ */
 import { CarousalComponent } from "../Component/Carousal";
-
-// Main Home page component
 const Home = () => {
-  // Array of project data to display in the projects section
+  /**
+   * Array of project data to display in the projects section
+   *
+   * @type {Array<{ id: number, name: string, description: string, logo: string }>}
+   */
   const projects = [
     {
       id: 1,
