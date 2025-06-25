@@ -1,19 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Card } from "flowbite-react";
-
+import { useState, useEffect } from "react";
 const Clients = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      setShowContent(true);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
+  /**
+   * List of client data to display in the clients section
+   *
+   * @type {Array<{ id: number, name: string, description: string, logo: string }>}
+   */
   const clients = [
     {
       id: 1,
@@ -62,6 +53,12 @@ const Clients = () => {
     },
   ];
 
+  /**
+   * Function to get the accent classes based on the accent color
+   *
+   * @param {string} color - The accent color
+   * @returns {Object} - An object with the accent classes
+   */
   const getAccentClasses = (color) => {
     const colorMap = {
       blue: {
@@ -91,36 +88,13 @@ const Clients = () => {
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950 py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto container">
         {/* Header Section */}
-        <div className="text-center mb-16">
-          {/* Icon */}
-          {/* <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full mb-6 shadow-lg">
-            <svg
-              className="w-8 h-8 text-white mt-10"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-              />
-            </svg>
-          </div> */}
-
-          {/* Title */}
+        <div className="text-center mb-16 " style={{ paddingTop: "70px" }}>
           <h1
             className={`
-            text-4xl pt-20 md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight
+            text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight
             transition-all duration-700
-            ${
-              showContent
-                ? "opacity-100 transform translate-y-0"
-                : "opacity-0 transform translate-y-4"
-            }
           `}
           >
             <span
@@ -137,11 +111,6 @@ const Clients = () => {
             className={`
             text-lg text-gray-600  pt-5  dark:text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8
             transition-all duration-700 delay-200
-            ${
-              showContent
-                ? "opacity-100 transform translate-y-0"
-                : "opacity-0 transform translate-y-4"
-            }
           `}
           >
             We are proud to collaborate with some of the world's most
@@ -154,11 +123,6 @@ const Clients = () => {
             className={`
             flex items-center justify-center
             transition-all duration-500 delay-400
-            ${
-              showContent
-                ? "opacity-100 transform scale-100"
-                : "opacity-0 transform scale-75"
-            }
           `}
           >
             <div className="h-1 w-24 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full"></div>
@@ -169,13 +133,9 @@ const Clients = () => {
         <div
           className={`
           grid grid-cols-1 md:grid-cols-3 gap-8 mb-16
-          transition-all duration-700 delay-500 pt-5
-          ${
-            showContent
-              ? "opacity-100 transform translate-y-0"
-              : "opacity-0 transform translate-y-4"
-          }
-        `}
+          transition-all duration-700 delay-500 pt-5 
+       : "opacity-0 transform translate-y-4"
+          }        `}
         >
           {[
             { number: "50+", label: "Global Clients", icon: "🌍" },
@@ -184,7 +144,7 @@ const Clients = () => {
           ].map((stat, index) => (
             <div
               key={index}
-              className="text-center p-6 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50 mb-24"
+              className="text-center p-6 bg-white/50 border rounded-lg dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 mb-24"
             >
               <div className="text-3xl mb-2">{stat.icon}</div>
               <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1">
@@ -203,11 +163,6 @@ const Clients = () => {
           grid grid-cols-1 lg:grid-cols-3 gap-8
           transition-all duration-700 delay-700  pt-8
           my-10
-          ${
-            showContent
-              ? "opacity-100 transform translate-y-0"
-              : "opacity-0 transform translate-y-8"
-          }
         `}
         >
           {clients.map((client, index) => {
@@ -217,7 +172,7 @@ const Clients = () => {
               <div
                 key={client.id}
                 className={`
-                  group relative bg-white dark:bg-gray-800 rounded-3xl shadow-xl
+                  group relative bg-white border rounded-lg dark:bg-gray-800 rounded-3xl shadow-xl
                   border border-gray-200 dark:border-gray-700
                   transition-all duration-500 ease-out
                   hover:-translate-y-3 hover:scale-[1.02]
@@ -349,11 +304,6 @@ const Clients = () => {
           className={`
           text-center mt-16 p-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl
           transition-all duration-700 delay-1000
-          ${
-            showContent
-              ? "opacity-100 transform translate-y-0"
-              : "opacity-0 transform translate-y-4"
-          }
         `}
         >
           <h3 className="text-2xl font-bold text-white mb-4 py-3">
