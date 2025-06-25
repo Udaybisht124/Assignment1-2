@@ -2,26 +2,10 @@
 import React, { useState, useEffect } from "react";
 // Import global CSS styles
 import "../index.css";
+import { RiPhoneFindFill } from "react-icons/ri";
 
 // Main Services page component
 const Services = () => {
-  // State to track loading status (currently unused but could be for loading spinner)
-  const [isLoading, setIsLoading] = useState(true);
-  // State to control content visibility for animations
-  const [showContent, setShowContent] = useState(false);
-
-  // Effect hook to handle initial page load animations
-  useEffect(() => {
-    // Set timer to show content after 1.2 seconds for smooth animation
-    const timer = setTimeout(() => {
-      setIsLoading(false); // Set loading to false
-      setShowContent(true); // Show content with animations
-    }, 1200);
-
-    // Cleanup function to clear timer on component unmount
-    return () => clearTimeout(timer);
-  }, []); // Empty dependency array means this runs once on mount
-
   const services = [
     {
       id: 1,
@@ -236,11 +220,6 @@ const Services = () => {
             className={`
             text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight
             transition-all duration-700 open-sans
-            ${
-              showContent
-                ? "opacity-100 transform translate-y-0"
-                : "opacity-0 transform translate-y-4"
-            }
           `}
             style={{ paddingTop: "80px" }}
           >
@@ -253,11 +232,6 @@ const Services = () => {
             className={`
             text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8
             transition-all duration-700 delay-200 open-sans
-            ${
-              showContent
-                ? "opacity-100 transform translate-y-0"
-                : "opacity-0 transform translate-y-4"
-            }
           `}
           >
             Explore our comprehensive range of technology solutions designed to
@@ -270,11 +244,6 @@ const Services = () => {
             className={`
             flex items-center justify-center
             transition-all duration-500 delay-400
-            ${
-              showContent
-                ? "opacity-100 transform scale-100"
-                : "opacity-0 transform scale-75"
-            }
           `}
           >
             <div className="flex items-center justify-center mt-1 pb-10">
@@ -291,11 +260,6 @@ const Services = () => {
           className={`
           grid grid-cols-1 md:grid-cols-4 gap-6 mb-16
           transition-all duration-700 delay-500
-          ${
-            showContent
-              ? "opacity-100 transform translate-y-0"
-              : "opacity-0 transform translate-y-4"
-          }
         `}
         >
           {[
@@ -306,7 +270,7 @@ const Services = () => {
           ].map((stat, index) => (
             <div
               key={index}
-              className="text-center p-6 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50 hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all duration-300"
+              className="text-center p-6 rounded-xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all duration-300"
             >
               <div className="text-3xl mb-2">{stat.icon}</div>
               <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
@@ -324,11 +288,6 @@ const Services = () => {
           className={`
           grid grid-cols-1 lg:grid-cols-2 mb-16
           transition-all duration-700 delay-700  mt-10
-          ${
-            showContent
-              ? "opacity-100 transform translate-y-0"
-              : "opacity-0 transform translate-y-8"
-          }
         `}
           style={{ gap: "40px" }}
         >
@@ -340,11 +299,10 @@ const Services = () => {
                 key={service.id}
                 className={`
                   group relative bg-white dark:bg-gray-800 rounded-3xl shadow-xl
-                  border border-gray-200 dark:border-gray-700
+                   dark:rounded-xl dark:border-gray-600
                   transition-all duration-500 ease-out
                   hover:-translate-y-3 hover:scale-[1.02]
                   hover:shadow-2xl ${accentClasses.hoverRing}
-              
                   overflow-hidden
                 `}
                 style={{
@@ -358,10 +316,14 @@ const Services = () => {
                   absolute inset-0 bg-gradient-to-br ${service.gradient} 
                   opacity-0 group-hover:opacity-5 transition-opacity duration-500
                 `}
+                  style={{ paddingBottom: "200px" }}
                 ></div>
 
                 {/* Card content */}
-                <div className="relative p-8">
+                <div
+                  className="relative p-8 border rounded-xl"
+                  style={{ paddingBottom: "80px" }}
+                >
                   {/* Icon section */}
                   <div className="flex justify-center mb-6">
                     <div
@@ -447,7 +409,7 @@ const Services = () => {
                   {/* CTA Button */}
                   <button
                     className={`
-                    w-full py-3 px-6 rounded-xl font-semibold
+                    w-full py-3 px-6 rounded-xl font-semibold mt-8 px-4
                     bg-gradient-to-r ${service.gradient}
                     text-white shadow-lg hover:shadow-xl
                     transform hover:scale-105 transition-all duration-300
@@ -460,7 +422,7 @@ const Services = () => {
                   {/* Bottom accent */}
                   <div
                     className={`
-                    absolute bottom-0 left-0 right-0 h-1 
+                    absolute bottom-5 pb-3  left-0 right-0
                     bg-gradient-to-r ${service.gradient}
                     transform scale-x-0 group-hover:scale-x-100
                     transition-transform duration-500 origin-left
@@ -480,11 +442,6 @@ const Services = () => {
           className={`
           mb-16
           transition-all duration-700 delay-900
-          ${
-            showContent
-              ? "opacity-100 transform translate-y-0"
-              : "opacity-0 transform translate-y-4"
-          }
         `}
         >
           <h3
@@ -496,25 +453,49 @@ const Services = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               {
-                step: "01",
+                icon: (
+                  <img
+                    src="../src/assets/business-strategy_5831578.png"
+                    alt=""
+                    width="100px"
+                  />
+                ),
                 title: "Discovery",
                 description: "Understanding your needs and goals",
                 gradient: "from-blue-600 to-indigo-600",
               },
               {
-                step: "02",
+                icon: (
+                  <img
+                    src="../src/assets/sequence_3192968.png"
+                    alt=""
+                    width="100px"
+                  />
+                ),
                 title: "Planning",
                 description: "Strategic roadmap and timeline",
                 gradient: "from-purple-600 to-pink-600",
               },
               {
-                step: "03",
+                icon: (
+                  <img
+                    src="../src/assets/programming_6932017.png"
+                    alt=""
+                    width="100px"
+                  />
+                ),
                 title: "Development",
                 description: "Building with best practices",
                 gradient: "from-green-600 to-yellow-600",
               },
               {
-                step: "04",
+                icon: (
+                  <img
+                    src="../src/assets/delivery_1079023.png"
+                    alt=""
+                    width="100px"
+                  />
+                ),
                 title: "Delivery",
                 description: "Launch and ongoing support",
                 gradient: "from-orange-600 to-red-600",
@@ -522,7 +503,7 @@ const Services = () => {
             ].map((process, index) => (
               <div
                 key={index}
-                className="text-center border border-blue-400 dark:border-blue-400 dark:bg-indigo-700"
+                className="text-center border border-blue-400  rounded-xl dark:border-white dark:hover:bg-blue-500 dark:hover:opacity-25 dark:hover:text-black transition duration-700 ease-in-out dark:hover:scale-105"
                 style={{
                   paddingTop: "65px",
                   paddingBottom: "50px",
@@ -530,13 +511,13 @@ const Services = () => {
                   height: "300px",
                 }}
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r text-white font-bold text-xl rounded-full mb-4">
-                  {process.step}
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r text-white font-bold text-xl rounded-full mb-4 transition-transform duration-200 ease-in-out hover:rotate-3">
+                  {process.icon}
                 </div>
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white  dark:hover:text-black  mb-2 mt-8 transition-all duration-200 ease-in-out">
                   {process.title}
                 </h4>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-gray-300   dark:hover:text-black  transition-colors duration-200 ease-in-out">
                   {process.description}
                 </p>
               </div>
@@ -549,11 +530,6 @@ const Services = () => {
           className={`
           text-center p-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl
           transition-all duration-700 delay-1000
-          ${
-            showContent
-              ? "opacity-100 transform translate-y-0"
-              : "opacity-0 transform translate-y-4"
-          }
         `}
         >
           <h3
@@ -570,11 +546,14 @@ const Services = () => {
             that drives results. Our expert team is ready to bring your vision
             to life.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            style={{ paddingBottom: "100px" }}
+          >
             <button
               className="
               inline-flex items-center gap-2 px-8 py-4 
-              bg-white text-blue-600 font-semibold rounded-xl
+              dark:bg-blue-500 dark:text-black dark:hover:text-black font-semibold rounded-xl
               shadow-lg hover:shadow-xl hover:bg-gray-50
               transform hover:-translate-y-1 hover:scale-105
               transition-all duration-300
