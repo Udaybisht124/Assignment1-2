@@ -1,3 +1,11 @@
+/**
+ * Our Work Section component
+ *
+ * This component renders the "Our Work" section on the homepage.
+ * It displays a grid of cards with different technologies and their corresponding descriptions.
+ * Each card also includes a list of features and a call to action button.
+ */
+
 import React from "react";
 import { ArrowRight, Sparkles, Zap, Shield, Target } from "lucide-react";
 
@@ -73,6 +81,82 @@ const workItems = [
 ];
 
 export default function OurWorkSection() {
+  /**
+   * Array of work items
+   *
+   * @type {Array<{ id: number, title: string, description: string, icon: React.ReactNode, points: Array<string> }>}
+   */
+  const workItems = [
+    {
+      id: 1,
+      title: "Consumer Internet",
+      description:
+        "Building next-generation digital experiences that connect and engage users worldwide.",
+      icon: <Target className="w-8 h-8" />,
+      points: ["Native Mobile Apps", "Web Applications", "Cloud Orchestration"],
+      colors: {
+        primary: "text-blue-600 dark:text-blue-400",
+        bg: "bg-blue-50 dark:bg-blue-900/20",
+        border: "border-blue-200 dark:border-blue-800 rounded-xl",
+        hover: "hover:bg-blue-100 dark:hover:bg-blue-900/30",
+      },
+    },
+    {
+      id: 2,
+      title: "Robotics & Automation",
+      description:
+        "Pioneering intelligent automation solutions that revolutionize industrial processes.",
+      icon: <Zap className="w-8 h-8" />,
+      points: [
+        "Drive by Wire Systems",
+        "Autonomous Mobile Robots",
+        "Indoor Guided Systems",
+      ],
+      colors: {
+        primary: "text-emerald-600 dark:text-emerald-400",
+        bg: "bg-blue-50 dark:bg-blue-900/20",
+        border: "border-blue-200 dark:border-blue-800 rounded-xl",
+        hover: "hover:bg-blue-100 dark:hover:bg-blue-900/30",
+      },
+    },
+
+    {
+      id: 3,
+      title: "Internet of Things",
+      description:
+        "Creating interconnected ecosystems that bridge the physical and digital worlds.",
+      icon: <Shield className="w-8 h-8" />,
+      points: [
+        "Hardware Solutions",
+        "Scalable Interfaces",
+        "Multi-protocol Gateway",
+      ],
+      colors: {
+        primary: "text-purple-600 dark:text-purple-400",
+        bg: "bg-blue-50 dark:bg-blue-900/20",
+        border: "border-blue-200 dark:border-blue-800 rounded-xl",
+        hover: "hover:bg-blue-100 dark:hover:bg-blue-900/30",
+      },
+    },
+    {
+      id: 4,
+      title: "AI & Machine Learning",
+      description:
+        "Harnessing artificial intelligence to unlock insights and automate decision-making.",
+      icon: <Sparkles className="w-8 h-8" />,
+      points: [
+        "Predictive Modeling",
+        "Recommender Systems",
+        "Intelligent Chatbots",
+      ],
+      colors: {
+        primary: "text-orange-600 dark:text-orange-400",
+        bg: "bg-blue-50 dark:bg-blue-900/20",
+        border: "border-blue-200 dark:border-blue-800 rounded-xl",
+        hover: "hover:bg-blue-100 dark:hover:bg-blue-900/30",
+      },
+    },
+  ];
   return (
     <section className="min-h-screen bg-gray-50 dark:bg-gray-900 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,7 +187,8 @@ export default function OurWorkSection() {
             <div
               key={item.id}
               className={`
-                bg-white dark:bg-gray-800 rounded-2xl shadow-lg border
+                bg-white dark:bg-gray-800 shadow-lg border
+
                 ${item.colors.border} ${item.colors.hover}
                 transition-all duration-300 ease-in-out
                 hover:-translate-y-1 hover:shadow-xl

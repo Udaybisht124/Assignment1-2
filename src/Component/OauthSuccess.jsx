@@ -1,6 +1,14 @@
-import { useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { useAuthStore } from '../Store/authStore';
+/**
+ * OAuth success page that handles token parameter from OAuth flow.
+ * Stores token in cookie and sets user as logged in.
+ * Redirects to home page after successful login.
+ *
+ * @returns {React.ReactElement} OAuth success page element
+ */
+
+import { useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useAuthStore } from "../Store/authStore";
 
 const OauthSuccess = () => {
   const navigate = useNavigate();
@@ -9,12 +17,12 @@ const OauthSuccess = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const token = params.get('token');
+    const token = params.get("token");
     if (token) {
       loginWithToken(token); // Store token and set user as logged in
-      navigate('/home'); // Redirect to home
+      navigate("/home"); // Redirect to home
     } else {
-      navigate('/login');
+      navigate("/login");
     }
   }, [location, loginWithToken, navigate]);
 
