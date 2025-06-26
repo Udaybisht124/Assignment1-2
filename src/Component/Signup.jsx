@@ -208,8 +208,8 @@ export const SignupForm = () => {
 
   return (
     /**
-     * Main container for the signup form with animated background.
-     * @type {JSX.Element}
+     * The main container for the signup form with an animated background.
+     * @returns {JSX.Element} The signup form JSX.
      */
     <div className="flex items-center justify-center min-h-screen h-screen bg-gray-900 relative px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       <style>{animatedBgStyles}</style>
@@ -229,7 +229,7 @@ export const SignupForm = () => {
         {alert.show && (
           <div className="mb-6">
             /** * Displays an alert message for success or failure. * @type{" "}
-            {JSX.Element}
+            {/* {JSX.Element} */}
             */
             <AlertComponent
               message={alert.message}
@@ -328,8 +328,6 @@ export const SignupForm = () => {
               className="dark:text-black"
               aria-describedby={errors.password ? "password-error" : undefined}
             />
-            /** * Toggles password visibility. * @type {JSX.Element}
-            */
             <button
               type="button"
               className="absolute right-3 top-1/2 transform -translate-y-1/2 text-sm text-gray-500 hover:text-gray-700"
@@ -344,7 +342,7 @@ export const SignupForm = () => {
             )}
           </div>
           <div>
-            /** * Input for uploading a profile picture. * @type {JSX.Element}
+            /** * Input for uploading a profile picture. * @type JSX.Element
             */
             <label className="block text-gray-700 mb-1">
               Profile Picture (optional)
@@ -357,8 +355,7 @@ export const SignupForm = () => {
               className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
             />
           </div>
-          /** * Submit button with loading state. * @type {JSX.Element}
-          */
+          {/* Submit button with loading state. */}
           <button
             type="submit"
             className={`w-full px-4 py-3 bg-blue-500 text-white rounded-md transition-colors shadow-md font-semibold flex items-center justify-center ${
@@ -402,7 +399,7 @@ export const SignupForm = () => {
             </Link>
           </p>
         </form>
-        /** * Google OAuth signup section. * @type {JSX.Element}
+        /** * Google OAuth signup section. * @type JSX.Element
         */
         <div className="flex flex-col items-center mt-6">
           <span className="text-gray-500 mb-2">or sign up with</span>
