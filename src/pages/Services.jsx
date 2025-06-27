@@ -1,6 +1,6 @@
-// Import React library and hooks for component creation and state management
+
 import React, { useState, useEffect } from "react";
-// Import global CSS styles
+
 import "../index.css";
 import { RiPhoneFindFill } from "react-icons/ri";
 
@@ -230,7 +230,7 @@ const Services = () => {
           {/* Subtitle */}
           <p
             className={`
-            text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8
+         text-md md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl  text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8
             transition-all duration-700 delay-200 open-sans
           `}
           >
@@ -460,8 +460,9 @@ const Services = () => {
                   <img
                     src="../src/assets/business-strategy_5831578.png"
                     alt=""
-                    width="100px"
-                  />
+                    width="150px"
+                 
+                    />
                 ),
                 title: "Discovery",
                 description: "Understanding your needs and goals",
@@ -470,9 +471,9 @@ const Services = () => {
               {
                 icon: (
                   <img
-                    src="../src/assets/sequence_3192968.png"
+                    src="../src/assets/medical_15740984.png"
                     alt=""
-                    width="100px"
+                    width="150px"
                   />
                 ),
                 title: "Planning",
@@ -506,7 +507,11 @@ const Services = () => {
             ].map((process, index) => (
               <div
                 key={index}
-                className="text-center border border-blue-400  rounded-xl dark:border-white dark:hover:bg-blue-500 dark:hover:opacity-25 dark:hover:text-black transition duration-700 ease-in-out dark:hover:scale-105"
+                className="text-center border border-blue-400  rounded-xl dark:border-white dark:hover:bg-blue-500 dark:hover:opacity-25 dark:hover:text-black transition duration-700 ease-in-out dark:hover:scale-105
+                md:px-6 md:py-6 sm:px-4 sm:py-6
+                
+                
+                "
                 style={{
                   paddingTop: "65px",
                   paddingBottom: "50px",
@@ -550,22 +555,31 @@ const Services = () => {
             to life.
           </p>
           <div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-2 md:gap-3 lg:gap-4 justify-center"
             style={{ paddingBottom: "100px" }}
           >
-            <button
+                        
+              <button
               className="
               inline-flex items-center gap-2 px-8 py-4 
-              dark:bg-blue-500 dark:text-black dark:hover:text-black font-semibold rounded-xl
-              shadow-lg hover:shadow-xl hover:bg-gray-50
+              sm:items-ce
+               bg-transparent text-white font-semibold rounded-xl border-2 border-white
+              hover:bg-blue-500 hover:text-white hover:transition-all hover:duration-700
               transform hover:-translate-y-1 hover:scale-105
-              transition-all duration-300
+              transition-all duration-300 
               focus:outline-none focus:ring-4 focus:ring-white/50
             "
+            style={{marginBottom:"50px"}}
             >
-              <span>Start Your Project</span>
-              <svg
-                className="w-5 h-5"
+              <div className=" flex
+          mx-auto gap-4">
+              <span className="sm:mx-auto py-auto">
+                Start Your Project</span>
+
+
+           <svg
+                className="w-5 h-8
+                 pt-auto"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -577,9 +591,11 @@ const Services = () => {
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
-            </button>
-            <button
-              className="
+              </div>
+               </button>
+
+                  <button
+               className="
               inline-flex items-center gap-2 px-8 py-4 
               bg-transparent text-white font-semibold rounded-xl border-2 border-white
               hover:bg-white hover:text-blue-600
@@ -587,9 +603,15 @@ const Services = () => {
               transition-all duration-300
               focus:outline-none focus:ring-4 focus:ring-white/50
             "
+            style={{marginBottom:"50px"}}
             >
-              <span>Schedule Consultation</span>
-              <svg
+              <div className=" flex
+          mx-auto gap-4">
+              <span className="sm:mx-auto py-auto">
+                                Schedule Consultation
+</span>
+
+  <svg
                 className="w-5 h-5"
                 fill="none"
                 stroke="currentColor"
@@ -602,7 +624,9 @@ const Services = () => {
                   d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                 />
               </svg>
-            </button>
+
+              </div>
+               </button>
           </div>
         </div>
       </div>
