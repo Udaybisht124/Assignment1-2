@@ -1,49 +1,41 @@
-// Import React library and useEffect hook for side effects
 import React, { useEffect } from "react";
-// Import React Router components for client-side routing
+
 import {
-  BrowserRouter as Router, // Provides routing context for the entire app
-  Routes, // Container for all route definitions
-  Route, // Individual route definition
-  Navigate, // Component for programmatic navigation/redirects
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
 } from "react-router-dom";
-// Import custom authentication store hook for managing login state
 import { useAuthStore } from "./Store/authStore.jsx";
-// Import custom theme store hook for managing dark/light theme
-import { useThemeStore } from "./Store/ThemeStore";
-// Import navigation bar component
+
+import { useThemeStore } from "./Store/themeStore";
+
 import AppNavbar from "./Component/Navbar";
-// Import page components
+
 import Home from "./pages/Home.jsx";
 import Services from "./pages/Services.jsx";
 import { ContactUs } from "./pages/ContactUs.jsx";
 import Clients from "./pages/Client.jsx";
-// Import footer component
+
 import AppFooter from "./Component/Footer.jsx";
-// Import authentication form components
+
 import { SignupForm } from "./Component/Signup";
 import { LoginForm } from "./Component/LoginForm";
-// Import work showcase component
-import OurWorkSection from "./Component/OurWork";
-// Import OAuth success handler component
+
+import { OurWorkSection } from "./Component/OurWork.jsx";
+
 import OauthSuccess from "./Component/OauthSuccess.jsx";
 
-// Main App component that serves as the root of the application
 function App() {
-  // Extract isLoggedIn state from authentication store
   const { isLoggedIn } = useAuthStore();
-  // Extract current theme from theme store
+
   const { theme } = useThemeStore();
 
-  // Effect hook to apply theme changes to the document
   useEffect(() => {
-    // Toggle 'dark' class on document root based on theme state
-    document.documentElement.classList.toggle("dark", theme === "dark"); // fixed logic
-  }, [theme]); // Re-run effect when theme changes
+    document.documentElement.classList.toggle("dark", theme === "dark");
+  }, [theme]);
 
-  // Render the application structure
   return (
-    // Router wrapper provides routing context to all child components
     <Router>
       {/* Main app container with flexbox layout */}
       <div className="App flex flex-col min-h-screen">
