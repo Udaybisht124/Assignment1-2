@@ -260,6 +260,7 @@ const Services = () => {
           className={`
           grid grid-cols-1 md:grid-cols-4 gap-6 mb-16
           transition-all duration-700 delay-500
+          drop-shadow-cyan-500 light:drop-shadow-2  xl
         `}
         >
           {[
@@ -272,7 +273,9 @@ const Services = () => {
               key={index}
               className="text-center p-6 rounded-xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all duration-300"
             >
-              <div className="text-3xl mb-2">{stat.icon}</div>
+              <div className="text-3xl mb-2 text-blue-500 dark:text-blue-400">
+                {stat.icon}
+              </div>
               <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
                 {stat.number}
               </div>

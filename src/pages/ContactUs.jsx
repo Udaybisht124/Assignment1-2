@@ -106,7 +106,7 @@ export function ContactUs() {
 
     setTimeout(() => setAlert((prev) => ({ ...prev, show: false })), 4000);
   };
-
+    
   return (
     <div
       className="flex flex-col lg:flex-row lg:gap-8 items-center justify-center h-screen max-w-full bg-gray-100 dark:bg-gray-900 px-4 py-4 lg:px-auto lg:py-10"
