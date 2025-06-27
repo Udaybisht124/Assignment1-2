@@ -1,17 +1,14 @@
-// Import React library for component creation
+/**
+ * Main navigation bar component
+ *
+ * @returns {React.ReactElement} The JSX element for the AppNavbar component
+ */
 import React from "react";
-// Import Navbar and Button components from Flowbite React UI library
 import { Navbar, Button } from "flowbite-react";
-// Import Link component from React Router for navigation
 import { Link } from "react-router-dom";
-// Import theme store hook for theme management
 import { useThemeStore } from "../Store/ThemeStore";
-// Import authentication store hook for user authentication state
 import { useAuthStore } from "../Store/authStore.jsx";
-// Import custom Avatar component
 import { AvatarComponent } from "./Avatar";
-
-// Main navigation bar component
 const AppNavbar = () => {
   // Extract isLoggedIn state and logout function from auth store
   const { isLoggedIn, logout } = useAuthStore();
@@ -117,6 +114,7 @@ const AppNavbar = () => {
     </Navbar>
   );
 };
-
 // Export AppNavbar component as default export
 export default AppNavbar;
+
+
