@@ -13,12 +13,9 @@ import { useAuthStore } from "../Store/authStore.jsx";
 import { AvatarComponent } from "./Avatar";
 
 const AppNavbar = () => {
-  // Extract isLoggedIn state and logout function from auth store
   const { isLoggedIn, logout } = useAuthStore();
-  // Extract current theme and toggleTheme function from theme store
   const { theme, toggleTheme } = useThemeStore();
 
-  // Render the navigation bar
   return (
     <Navbar fluid rounded>
       <NavbarBrand href="/">
@@ -52,31 +49,75 @@ const AppNavbar = () => {
         )}
         <NavbarToggle />
       </div>
-      <NavbarCollapse>
+      <NavbarCollapse className="transition-all duration-300 ease-in-out">
         {isLoggedIn && (
           <>
-            <NavbarLink as={Link} to="/home">
+            <NavbarLink
+              as={Link}
+              to="/home"
+              className="text-blue-500 hover:text-blue-400 nav-link relative  dark:hover:text-blue-600 transition-all duration-300 ease-in-out"
+            >
               Home
             </NavbarLink>
-            <NavbarLink as={Link} to="/services">
+            <NavbarLink
+              as={Link}
+              to="/services"
+              className="nav-link relative text-base hover:text-blue-600 transition-all duration-300 ease-in-out"
+            >
               Services
             </NavbarLink>
-            <NavbarLink as={Link} to="/contact">
+            <NavbarLink
+              as={Link}
+              to="/contact"
+              className="nav-link relative text-base hover:text-blue-600 transition-all duration-300 ease-in-out"
+            >
               Contact Us
             </NavbarLink>
-            <NavbarLink as={Link} to="/clients">
+            <NavbarLink
+              as={Link}
+              to="/clients"
+              className="nav-link relative text-base hover:text-blue-600 transition-all duration-300 ease-in-out"
+            >
               Clients
             </NavbarLink>
-            <NavbarLink as={Link} to="/ourwork">
+            <NavbarLink
+              as={Link}
+              to="/ourwork"
+              className="nav-link relative text-base hover:text-blue-600 transition-all duration-300 ease-in-out"
+            >
               Our Work
             </NavbarLink>
           </>
         )}
       </NavbarCollapse>
-      {/* {isLoggedIn >} */}
+      <style>
+        {`
+          .nav-link {
+            display: inline-block;
+            padding-bottom: 2px;
+            position: relative;
+            color:#1c64f2;
+          }
+          .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #3b82f6;
+            transition: width 0.3s ease-in-out;
+          }
+          .nav-link:hover::after {
+            width: 100%;
+          }
+          .nav-link:hover {
+            transform: scale(1.1);
+          }
+        `}
+      </style>
     </Navbar>
   );
 };
 
-// Export AppNavbar component as default export
 export default AppNavbar;
