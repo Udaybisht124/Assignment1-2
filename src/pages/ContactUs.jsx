@@ -106,9 +106,12 @@ export function ContactUs() {
 
     setTimeout(() => setAlert((prev) => ({ ...prev, show: false })), 4000);
   };
-    
+
   return (
-    <div className="flex flex-col lg:flex-row lg:gap-8 items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 px-4" style={{paddingTop:"150px", paddingBottom:"150px"}}>
+    <div
+      className="flex flex-col lg:flex-row lg:gap-8 items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 px-4"
+      style={{ paddingTop: "150px", paddingBottom: "150px" }}
+    >
       <div className="flex-shrink-0 mb-10 lg:mb-32 lg:mr-16 flex justify-center items-center ">
         <img
           src="https://addvalsolutions.com/assets/images/team/kulcare-team.webp"
