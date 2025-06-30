@@ -78,11 +78,14 @@ const Home = () => {
       </div>
 
       {/* our project section  */}
-      <section className="dark:bg-gray-900 h-screen py-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 flex items-center">
+      <section
+        className="dark:bg-gray-900 h-screen py-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 flex items-center"
+        style={{ marginTop: "-100px", marginBottom: "70px" }}
+      >
         <div className="max-w-7xl mx-auto w-full">
           <div className="text-center mb-4">
             <h1
-              className="text-4xl md:text-5xl xl:text-3xl open-sans font-bold font-serif text-white dark:text-blue-400 tracking-tight lg:mt-2 mb-2"
+              className="text-4xl md:text-5xl xl:text-3xl open-sans font-bold font-serif text-blue-500 dark:text-blue-400 tracking-tight lg:mt-2 mb-2"
               style={{ padding: 60 }}
             >
               Our Projects
@@ -96,7 +99,7 @@ const Home = () => {
               return (
                 <div
                   key={project.id}
-                  className={`group flex flex-col items-center justify-between bg-white dark:bg-gray-800 rounded-2xl shadow-md border border-blue-400 transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:border-blue-400 dark:hover:border-blue-500 text-center h-full min-h-[420px] rounded-xl`}
+                  className={`group flex flex-col items-center justify-between bg-white dark:bg-gray-800 rounded-2xl shadow-md border hover:bg-blue-400 hover:text-white border-blue-400 transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:border-blue-400 dark:hover:border-blue-500 text-center h-full min-h-[420px] rounded-xl`}
                   style={{
                     padding: "30px",
                   }}
@@ -113,7 +116,7 @@ const Home = () => {
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 mt-1 transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">
                       {project.name}
                     </h2>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+                    <p className="text-gray-600 dark:text-gray-300  leading-relaxed mb-8">
                       {project.description}
                     </p>
                   </div>
